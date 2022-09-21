@@ -1,4 +1,6 @@
-# wl1
+# LocalListings - classifieds CRUD application built with Python and Django
+
+Run the following commands to install Geolocation data
 
 GEO
 https://docs.djangoproject.com/en/1.10/ref/contrib/gis/geoip2/#module-django.contrib.gis.geoip2
