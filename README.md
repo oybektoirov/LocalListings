@@ -1,4 +1,4 @@
-# LocalListings - classifieds CRUD application built with Python and Django
+# LocalListings - classifieds CRUD application
 
 Run the following commands to install Geolocation data
 
