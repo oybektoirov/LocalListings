@@ -1,0 +1,12 @@
+CREATE USER 'devsql'@'localhost' IDENTIFIED BY 'Devsql123';
+GRANT USAGE ON *.* TO 'devsql'@'%' IDENTIFIED BY PASSWORD '*7733323232...';
+GRANT USAGE ON *.* TO 'devsql'@'localhost' IDENTIFIED BY PASSWORD '*7733323232...';
+CREATE DATABASE WLPROD CHARACTER SET utf8mb4 COLLATE = utf8mb4_unicode_ci;
+GRANT ALL PRIVILEGES ON `WLPROD`.* TO 'devsql'@'%';
+GRANT ALL PRIVILEGES ON `WLPROD`.* TO 'devsql'@'localhost';
+FLUSH PRIVILEGES;
+
+
+SET NAMES utf8mb4;
+ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+

@@ -1,0 +1,785 @@
+[
+    {
+        "fields": {
+            "pretty_name": "tickets, concerts, festivals", 
+            "section": "leisure", 
+            "slug": "tickets-concerts-places"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 4
+    }, 
+    {
+        "fields": {
+            "pretty_name": "bars, sports events", 
+            "section": "leisure", 
+            "slug": "bars-sports-events"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 5
+    },
+    {
+        "fields": {
+            "pretty_name": "fun events & places", 
+            "section": "leisure", 
+            "slug": "fun-events-places"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 6
+    },
+    {
+        "fields": {
+            "pretty_name": "travel packages", 
+            "section": "leisure", 
+            "slug": "travel-packages"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 7
+    },  
+    {
+        "fields": {
+            "pretty_name": "activities", 
+            "section": "community", 
+            "slug": "activities"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 9
+    }, 
+    {
+        "fields": {
+            "pretty_name": "artists", 
+            "section": "community", 
+            "slug": "artists"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 10
+    },  
+    {
+        "fields": {
+            "pretty_name": "classes", 
+            "section": "community", 
+            "slug": "classes"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 12
+    }, 
+    {
+        "fields": {
+            "pretty_name": "meetups", 
+            "section": "community", 
+            "slug": "meetups"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 13
+    }, 
+    {
+        "fields": {
+            "pretty_name": "general", 
+            "section": "community", 
+            "slug": "general"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 14
+    }, 
+    {
+        "fields": {
+            "pretty_name": "lost & found", 
+            "section": "community", 
+            "slug": "lost-found"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 15
+    }, 
+    {
+        "fields": {
+            "pretty_name": "musicians", 
+            "section": "community", 
+            "slug": "musicians"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 16
+    }, 
+    {
+        "fields": {
+            "pretty_name": "pets", 
+            "section": "community", 
+            "slug": "pets"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 17
+    }, 
+    {
+        "fields": {
+            "pretty_name": "politics", 
+            "section": "community", 
+            "slug": "politics"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 18
+    }, 
+    {
+        "fields": {
+            "pretty_name": "rideshare", 
+            "section": "community", 
+            "slug": "rideshare"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 19
+    }, 
+    {
+        "fields": {
+            "pretty_name": "volunteers", 
+            "section": "community", 
+            "slug": "volunteers"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 20
+    }, 
+    {
+        "fields": {
+            "pretty_name": "apartments for rent", 
+            "section": "housing", 
+            "slug": "apartments-for-rent"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 21
+    }, 
+    {
+        "fields": {
+            "pretty_name": "houses for rent", 
+            "section": "housing", 
+            "slug": "houses-for-rent"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 22
+    }, 
+    {
+        "fields": {
+            "pretty_name": "housing wanted", 
+            "section": "housing", 
+            "slug": "housing-wanted"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 23
+    }, 
+    {
+        "fields": {
+            "pretty_name": "office, commercial", 
+            "section": "housing", 
+            "slug": "office-commercial"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 24
+    }, 
+    {
+        "fields": {
+            "pretty_name": "parking & storage", 
+            "section": "housing", 
+            "slug": "parking-storage"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 25
+    }, 
+    {
+        "fields": {
+            "pretty_name": "rooms, shared", 
+            "section": "housing", 
+            "slug": "rooms-shared"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 26
+    }, 
+    {
+        "fields": {
+            "pretty_name": "rooms wanted", 
+            "section": "housing", 
+            "slug": "rooms-wanted"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 27
+    }, 
+    {
+        "fields": {
+            "pretty_name": "vacation rentals", 
+            "section": "housing", 
+            "slug": "vacation-rentals"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 28
+    }, 
+    {
+        "fields": {
+            "pretty_name": "accounting & finance", 
+            "section": "jobs", 
+            "slug": "accounting-finance"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 29
+    }, 
+    {
+        "fields": {
+            "pretty_name": "admin & office", 
+            "section": "jobs", 
+            "slug": "admin-office"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 30
+    }, 
+    {
+        "fields": {
+            "pretty_name": "architecture & engineering", 
+            "section": "jobs", 
+            "slug": "architecture-engineering"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 31
+    }, 
+    {
+        "fields": {
+            "pretty_name": "art & media & design", 
+            "section": "jobs", 
+            "slug": "art-media-design"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 32
+    }, 
+    {
+        "fields": {
+            "pretty_name": "biotech, science", 
+            "section": "jobs", 
+            "slug": "biotech-science"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 33
+    }, 
+    {
+        "fields": {
+            "pretty_name": "business & management", 
+            "section": "jobs", 
+            "slug": "business-management"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 34
+    }, 
+    {
+        "fields": {
+            "pretty_name": "customer service", 
+            "section": "jobs", 
+            "slug": "customer-service"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 35
+    }, 
+    {
+        "fields": {
+            "pretty_name": "education", 
+            "section": "jobs", 
+            "slug": "education"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 36
+    }, 
+    {
+        "fields": {
+            "pretty_name": "food, beverage, hospitality", 
+            "section": "jobs", 
+            "slug": "food-beverage-hospitality"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 37
+    }, 
+    {
+        "fields": {
+            "pretty_name": "general labor", 
+            "section": "jobs", 
+            "slug": "general-labor"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 38
+    }, 
+    {
+        "fields": {
+            "pretty_name": "government", 
+            "section": "jobs", 
+            "slug": "government"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 39
+    }, 
+    {
+        "fields": {
+            "pretty_name": "software, IT, web design", 
+            "section": "jobs", 
+            "slug": "software-it-web-design"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 40
+    }, 
+    {
+        "fields": {
+            "pretty_name": "legal, paralegal", 
+            "section": "jobs", 
+            "slug": "legal-paralegal"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 41
+    }, 
+    {
+        "fields": {
+            "pretty_name": "manufacturing", 
+            "section": "jobs", 
+            "slug": "manufacturing"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 42
+    }, 
+    {
+        "fields": {
+            "pretty_name": "marketing, advertising", 
+            "section": "jobs", 
+            "slug": "marketing-advertising"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 43
+    }, 
+    {
+        "fields": {
+            "pretty_name": "medical, health", 
+            "section": "jobs", 
+            "slug": "medical-health"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 44
+    }, 
+    {
+        "fields": {
+            "pretty_name": "nonprofit sector", 
+            "section": "jobs", 
+            "slug": "nonprofit-sector"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 45
+    }, 
+    {
+        "fields": {
+            "pretty_name": "real estate", 
+            "section": "jobs", 
+            "slug": "real-estate"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 46
+    }, 
+    {
+        "fields": {
+            "pretty_name": "retail & wholesale", 
+            "section": "jobs", 
+            "slug": "retail-wholesale"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 47
+    }, 
+    {
+        "fields": {
+            "pretty_name": "sales & business development", 
+            "section": "jobs", 
+            "slug": "sales-business-development"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 48
+    }, 
+    {
+        "fields": {
+            "pretty_name": "salon & spa & fitness", 
+            "section": "jobs", 
+            "slug": "salon-spa-fitness"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 49
+    }, 
+    {
+        "fields": {
+            "pretty_name": "security", 
+            "section": "jobs", 
+            "slug": "security"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 50
+    }, 
+    {
+        "fields": {
+            "pretty_name": "skilled trade, craft", 
+            "section": "jobs", 
+            "slug": "skilled-trade-craft"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 51
+    }, 
+    {
+        "fields": {
+            "pretty_name": "transport", 
+            "section": "jobs", 
+            "slug": "transport"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 52
+    }, 
+    {
+        "fields": {
+            "pretty_name": "tv, film, video", 
+            "section": "jobs", 
+            "slug": "tv-film-video"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 53
+    }, 
+    {
+        "fields": {
+            "pretty_name": "writing & editing", 
+            "section": "jobs", 
+            "slug": "writing-editing"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 54
+    }, 
+    {
+        "fields": {
+            "pretty_name": "other & part-time", 
+            "section": "jobs", 
+            "slug": "other-part-time"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 55
+    }, 
+    {
+        "fields": {
+            "pretty_name": "antiques & collectibles", 
+            "section": "sale", 
+            "slug": "antiques-collectibles"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 56
+    }, 
+    {
+        "fields": {
+            "pretty_name": "appliances", 
+            "section": "sale", 
+            "slug": "appliances"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 57
+    }, 
+    {
+        "fields": {
+            "pretty_name": "arts & crafts", 
+            "section": "sale", 
+            "slug": "arts-crafts"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 58
+    }, 
+    {
+        "fields": {
+            "pretty_name": "auto parts", 
+            "section": "sale", 
+            "slug": "auto-parts"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 59
+    }, 
+    {
+        "fields": {
+            "pretty_name": "beauty, health", 
+            "section": "sale", 
+            "slug": "all-beauty-health"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 60
+    }, 
+    {
+        "fields": {
+            "pretty_name": "books", 
+            "section": "sale", 
+            "slug": "books"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 61
+    }, 
+    {
+        "fields": {
+            "pretty_name": "business", 
+            "section": "sale", 
+            "slug": "business"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 62
+    }, 
+    {
+        "fields": {
+            "pretty_name": "cars, vehicles", 
+            "section": "sale", 
+            "slug": "cars-vehicles"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 63
+    }, 
+    {
+        "fields": {
+            "pretty_name": "clothes, jewelry", 
+            "section": "sale", 
+            "slug": "clothes-jewelry"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 64
+    }, 
+    {
+        "fields": {
+            "pretty_name": "tech, electronics", 
+            "section": "sale", 
+            "slug": "tech-electronics"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 65
+    }, 
+    {
+        "fields": {
+            "pretty_name": "farm & garden", 
+            "section": "sale", 
+            "slug": "all-farm-garden"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 66
+    }, 
+    {
+        "fields": {
+            "pretty_name": "free stuff", 
+            "section": "sale", 
+            "slug": "free-stuff"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 67
+    }, 
+    {
+        "fields": {
+            "pretty_name": "furniture", 
+            "section": "sale", 
+            "slug": "furniture"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 68
+    }, 
+    {
+        "fields": {
+            "pretty_name": "garage sale", 
+            "section": "sale", 
+            "slug": "garage-sale"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 69
+    }, 
+    {
+        "fields": {
+            "pretty_name": "heavy equipment", 
+            "section": "sale", 
+            "slug": "heavy-equipment"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 70
+    }, 
+    {
+        "fields": {
+            "pretty_name": "music industry", 
+            "section": "sale", 
+            "slug": "music-industry"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 71
+    }, 
+    {
+        "fields": {
+            "pretty_name": "photo & video & media", 
+            "section": "sale", 
+            "slug": "photo-video-media"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 72
+    }, 
+    {
+        "fields": {
+            "pretty_name": "sporting", 
+            "section": "sale", 
+            "slug": "sporting"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 73
+    }, 
+    {
+        "fields": {
+            "pretty_name": "tickets", 
+            "section": "sale", 
+            "slug": "tickets"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 74
+    }, 
+    {
+        "fields": {
+            "pretty_name": "wanted", 
+            "section": "sale", 
+            "slug": "wanted"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 75
+    }, 
+    {
+        "fields": {
+            "pretty_name": "automotive", 
+            "section": "services", 
+            "slug": "automotive"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 76
+    }, 
+    {
+        "fields": {
+            "pretty_name": "beauty, health", 
+            "section": "services", 
+            "slug": "beauty-health"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 77
+    }, 
+    {
+        "fields": {
+            "pretty_name": "cell, mobile, computers", 
+            "section": "services", 
+            "slug": "cell-mobile-computers"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 78
+    }, 
+    {
+        "fields": {
+            "pretty_name": "creative", 
+            "section": "services", 
+            "slug": "creative"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 79
+    }, 
+    {
+        "fields": {
+            "pretty_name": "salon & spa & fitness", 
+            "section": "services", 
+            "slug": "all-salon-spa-fitness"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 80
+    }, 
+    {
+        "fields": {
+            "pretty_name": "cycle", 
+            "section": "services", 
+            "slug": "cycle"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 81
+    }, 
+    {
+        "fields": {
+            "pretty_name": "event", 
+            "section": "services", 
+            "slug": "event"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 82
+    }, 
+    {
+        "fields": {
+            "pretty_name": "farm, garden", 
+            "section": "services", 
+            "slug": "farm-garden"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 83
+    }, 
+    {
+        "fields": {
+            "pretty_name": "financial", 
+            "section": "services", 
+            "slug": "financial"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 84
+    }, 
+    {
+        "fields": {
+            "pretty_name": "labor, move", 
+            "section": "services", 
+            "slug": "labor-move"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 85
+    }, 
+    {
+        "fields": {
+            "pretty_name": "lessons, tutoring", 
+            "section": "services", 
+            "slug": "lessons-tutoring"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 86
+    }, 
+    {
+        "fields": {
+            "pretty_name": "legal", 
+            "section": "services", 
+            "slug": "legal"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 87
+    }, 
+    {
+        "fields": {
+            "pretty_name": "household", 
+            "section": "services", 
+            "slug": "household"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 88
+    }, 
+    {
+        "fields": {
+            "pretty_name": "pet", 
+            "section": "services", 
+            "slug": "pet"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 89
+    }, 
+    {
+        "fields": {
+            "pretty_name": "real estate", 
+            "section": "services", 
+            "slug": "all-real-estate"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 90
+    }, 
+    {
+        "fields": {
+            "pretty_name": "travel, vacations", 
+            "section": "services", 
+            "slug": "travel-vacations"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 91
+    }, 
+    {
+        "fields": {
+            "pretty_name": "writing, editing", 
+            "section": "services", 
+            "slug": "all-writing-editing"
+        }, 
+        "model": "ads.AdCategory", 
+        "pk": 92
+    }
+]

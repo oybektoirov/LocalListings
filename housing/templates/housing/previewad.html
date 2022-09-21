@@ -1,0 +1,254 @@
+{% load static %}
+{% load l10n %}
+{% load tz %}
+<!DOCTYPE html>
+<html lang="en-us"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>preview ad | {{ DOMAIN }}</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="noindex, nofollow">
+      <link rel="stylesheet" type="text/css" href="{% static "global-postad.css" %}">
+      <link rel="canonical" href="{{ SITE_URL }}/post-ad/">
+      <script type="text/javascript" src="{% static "jquery-1.7.2.min.js" %}" ></script>
+      <link rel="stylesheet" type="text/css" href="{% static "pure-min.css" %}">
+      <link rel="shortcut icon" href="{% static 'images/po_favicon.ico' %}">
+    {% if GOOGLE_ANALYTICS_KEY %}
+      <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', '{{ GOOGLE_ANALYTICS_KEY }}', 'auto');ga('send', 'pageview');</script>
+    {% endif %}
+    </head>
+
+
+    <body id="PostAdPPI">
+    
+<!-- TOP NAV -->
+    <div id="tlHeader" class="siteHeader">
+      <div id="logo" class="tlBlock">
+          <a href="{{ city_url }}/" style='background-image: url("{% static 'images/logo_main.png' %}")!important;'>home</a>    
+      </div>
+     <div id="community" class="tlBlock">
+          <p>
+            <span class="city">
+              {{ city.name }},&nbsp;{{ city.short_state }}
+            </span>
+            &nbsp;
+            <span class="comm">
+              local&nbsp;classifieds
+            </span>
+          </p>
+      </div><!-- #tlBlock -->
+    </div><!-- #tlHeader -->
+<!-- END TOP NAV -->
+
+
+  <div id="pageBackground">
+
+    <div class="mainBody">
+  
+    <h2>2. preview ad</h2>
+    
+  <ul id="stepButtons">
+    <li class="postAdButtonOff">
+      <div class="indexSectionHeader">1. write ad</div>
+    </li>
+    <li class="postAdButtonOn">
+      <div class="indexSectionHeader">2. preview ad</div>
+    </li>
+    <li class="postAdButtonOff">
+      <div class="indexSectionHeader">3. done</div>
+    </li>
+  </ul>
+
+
+  <br>
+  <span class="editAdTitles">
+    Please review your ad below and if no changes are to be made, click on "I'm not a robot checkbox" and click publish ad now or continue to next step.</span>
+    <br><br>
+
+    
+    <form name="formPreviewHeader" method="post" class="pure-form" action="{{ SITE_URL }}/post-ad/{{ category.section }}/{{ category.id }}">
+    {% csrf_token %}
+    <input type="hidden" name="lang" value="en-us">
+    <input type="hidden" name="category" value="{{ category.id }}">
+    <input type="hidden" name="adid" value="{{ ad.id }}">
+    <input type="hidden" name="acceptTerms" value="true">
+      <input type="hidden" name="nextstep" value="1">
+        <style scoped>
+        .button-warning {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+        .button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+        </style>
+      <button type="submit" class="button-warning pure-button">edit ad</button>
+    </form>
+    <br><hr noshade="">
+
+    
+    <form name="f" id="adform" method="post" class="pure-form" action="{{ SITE_URL }}/post-ad/{{ category.section }}/{{ category.id }}" enctype="multipart/form-data">
+    {% csrf_token %}
+      <input type="hidden" name="nextstep" value="3">
+      <input type="hidden" name="lang" value="en-us">
+      <input type="hidden" name="adid" value="{{ ad.id }}">
+      <input type="hidden" name="category" value="{{ category.id }}">
+
+      <br>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <div id="recaptcha">
+      <div class="g-recaptcha" data-sitekey="{{ recaptcha_public_key }}" data-size="compact"></div>
+    </div>
+      
+      <br>
+      <p id="captcha-message" style="display:none;color:red;">Please click on "I'm not a robot" checkbox</p>
+      <div style="margin:6px 0 18px;">
+        <button type="submit" class="pure-button pure-button-primary" id="submit_button">place ad now</button>
+      </div>
+    </form>
+
+    <script>
+        $('#adform').submit(function(event) {
+          event.preventDefault();
+          if (jQuery('#g-recaptcha-response').val()) {
+            jQuery('#captcha-message').hide();
+            $(this).unbind('submit').submit();
+            return true;
+          } else {
+            jQuery('#captcha-message').show();
+            return false;
+          }
+        });
+    </script>
+
+    <b>category:</b> {{ category.pretty_name }}<br>
+    <b>ad price:</b>&nbsp; free<br><br>
+  
+ <div class="adWrapper" style="background-color: #fff;height: 100%; width: 100%; display: inline-block;padding-left: 3px; border-radius: 4px;"> 
+ <div id="postingTitle">
+  <a class="h1link" href="javascript:void;"><h1>{{ ad.title }}</h1></a>
+ </div>
+
+  <div class="adInfo">
+  {% localtime on %}
+    Posted: {{ ad.posted }}
+  {% endlocaltime %}
+  </div>
+    
+  <hr noshade="">
+
+  
+
+  <style>
+  <!--
+    #viewAdPhotoLayout {
+      float:right;
+      margin:0 0 1em 1em;
+      padding:0;
+      clear:right;
+    }
+
+    #viewAdPhotoLayout li {
+      list-style-type:none;
+      margin:0;
+      padding:0.75em;
+      background:#eee;
+      text-align:center;
+      overflow:hidden;
+      -webkit-column-break-inside: avoid;
+      -moz-column-break-inside: avoid;
+      -ms-column-break-inside: avoid;
+      break-inside: avoid;
+    }
+      #viewAdPhotoLayout img {
+        margin-bottom:0.25em;
+      }
+      #viewAdPhotoLayout li a {
+        color:#000;
+      }
+  // -->
+  </style>
+  <!--[if gt IE 9]> -->
+  <style>
+  <!--
+    #viewAdPhotoLayout.fivePlus {
+      width:465px;
+      -moz-column-count:2;
+      -webkit-column-count:2;
+      column-count:2;
+      -moz-column-gap:1.5em;
+      -webkit-column-gap:1.5em;
+      column-gap:1.5em;
+      column-fill: auto;
+    }
+    #viewAdPhotoLayout.ninePlus {
+      width:708px;
+      -moz-column-count:3;
+      -webkit-column-count:3;
+      column-count:3;
+      -moz-column-gap:1.5em;
+      -webkit-column-gap:1.5em;
+      column-gap:1.5em;
+      column-fill: auto;
+    }
+    .metaAdInfo {
+          display: inline-block;
+          background-color: #e9ebee;
+          padding: 4px 4px 4px 4px;
+          border-radius: 4px;
+          margin-right: 4px;
+          margin-bottom: 6px;
+        }
+  // -->
+  </style>
+  <!-- <![endif]-->
+
+  
+    <ul id="viewAdPhotoLayout" class="">
+      {% for url in ad.get_images %}
+            <li><a href="{{ url.large }}"><img src="{{ url.large }}" width="100%" title="{{ ad.title }}" border="0"></a><br>
+            <a href="{{ url.large }}" class="enlargeLink">Enlarge Picture</a></li>
+      {% endfor %} 
+    </ul><!-- #viewAdPhotoLayout -->
+  
+  <div class="posting">
+    <div class="postingBody">
+      <p>{{ ad.body|linebreaks }}</p>
+    </div>
+    
+      <span class="metaAdInfo">Post ID: <b>{{ ad.id }} {{ city.name }}</b></span><br>
+        </div>     
+  </div> <!-- .posting -->
+
+  </div> <!-- .adWrapper -->
+  <br><br>
+
+  </div>
+
+  <div style="clear:both;"></div>
+    </div>
+    <!-- .mainBody -->
+
+    <div id="tlFooter">
+      <div class="footerText">
+        <a href="{{ SITE_URL }}/account/">my account</a> |
+        <a href="{{ SITE_URL }}/account/buy-credits/">buy credits</a> |
+        <a href="{{ SITE_URL }}/contact/">contact</a> |
+        <a href="{{ SITE_URL }}/privacy-policy/">privacy</a> |
+        <a href="{{ SITE_URL }}/terms-of-use/">terms</a> | 
+        <a href="{{ SITE_URL }}/user-safety/">safety</a> | 
+        &nbsp;©&nbsp;2017&nbsp;<a href="{{ SITE_URL }}/all-cities/">{{ DOMAIN }}</a>
+      </div><!-- .footerText -->
+      
+      <div class="footerDisclaimer">
+        {{ DOMAIN }} and its subsites are interactive computer services that enable access by multiple users and should not be treated as the publisher or speaker of any information provided by another information content provider.     
+      </div><!-- .footerDisclaimer -->
+    </div><!-- #tlFooter -->
+    
+
+  </div><!-- #pageBackground -->
+
+</body></html>

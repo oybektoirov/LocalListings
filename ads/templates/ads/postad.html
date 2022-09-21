@@ -1,0 +1,307 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lte IE 7]> <html class="ie7" lang-"en-us"> <![endif]-->
+<!--[if IE 8]>     <html class="ie8" lang="en-us"> <![endif]-->
+<!--[if IE 9]>     <html class="ie9" lang="en-us"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en-us"><!--<![endif]--><head>
+      <title>post classifieds ads for housing, jobs, and items for sale - {{ DOMAIN }}</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="description" content="Post classifieds. Post free ads for housing for rent, leisure, jobs, furniture, appliances, cars, pets and items for sale.">
+      <link rel="shortcut icon" href="{{ SITE_URL }}/static/favicon.ico">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="{% static "global-postad.css" %}">
+      <link rel="canonical" href="{{ SITE_URL }}/post-ad/">
+      <link rel="stylesheet" type="text/css" href="{% static "pure-min.css" %}">
+      <script type="text/javascript" src="{% static "jquery-1.7.2.min.js" %}" ></script>
+      <link rel="shortcut icon" href="{% static 'images/po_favicon.ico' %}">
+    {% if GOOGLE_ANALYTICS_KEY %}
+      <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', '{{ GOOGLE_ANALYTICS_KEY }}', 'auto');ga('send', 'pageview');</script>
+    {% endif %}
+    </head>   
+    
+    <body id="index">
+
+<!-- TOP NAV -->
+    <div id="tlHeader" class="siteHeader">
+      <div id="logo" class="tlBlock">
+          <a href="{{ SITE_URL }}/" style='background-image: url("{% static 'images/logo_main.png' %}")!important;'>home</a>    
+      </div>
+     <div id="community" class="tlBlock">
+          <p>
+          <span class="comm">
+          <a class="pure-button pure-button-primary" href="{{ SITE_URL }}/post-ad/">post ad</a>
+          </span>&nbsp;
+            <span class="city">
+              post ad 
+            </span>
+            &nbsp;
+            <span class="comm">
+              local&nbsp;classifieds
+            </span>
+          </p>
+      </div><!-- #tlBlock -->
+    </div><!-- #tlHeader -->
+
+
+    <div id="cookieCrumb">
+      <a href="{{ SITE_URL }}/">home</a> &gt; <a href="{{ SITE_URL }}/post-ad/">post ad</a><span id="crumbSectionName" section-name=""></span><span id="crumbCategoryName"></span>
+    </div>
+  
+
+  <div id="pageBackground">
+
+    <div class="mainBody">
+    <div style="max-height: 99999px;">
+
+  
+    <div class="jsChooser jsChooser_section" style="">
+    <h2>choose a section</h2>
+    <div class="chooseSection" style="width:99%;max-width:540px;">
+      
+        <ul class="getSection" style="column-count:2;-webkit-column-count:2;-moz-column-count:2;column-gap:3px;-webkit-column-gap:3px;-moz-column-gap:3px;line-height:2.5;">
+        
+        {% for section, categories in sections %}
+            <li class="post_li"><a href="{{ SITE_URL }}/post-ad/{{ section }}/" data-section="{{ section }}" data-name="{{ section }}" data-disclaimer="no">{{ section }}</a></li>
+        {% endfor %}
+          
+          </ul>
+        
+    </div><!-- .chooseSection -->
+  </div>
+
+{% for section, categories in sections %}
+  <div class="jsChooser jsChooser_category" data-section="{{ section }}" style="display:none;">
+      <h2>choose a category</h2>
+      
+          <div class="chooseCategory" style="width:99%;max-width:540px;">
+          <ul class="getCategory" style="column-count:2;-webkit-column-count:2;-moz-column-count:2;column-gap:3px;-webkit-column-gap:3px;-moz-column-gap:3px;line-height:2.5;">
+        
+          {% for category in categories %}
+            {% if category.slug == 'escorts' or category.slug == 'body-rubs' or category.slug == 'strippers-strip-clubs'%}
+            <li class="post_li"><a category-slug="{{ category.slug }}" href="{{ SITE_URL }}/post-ad/{{ category.slug }}/{{ category.id }}" data-category="{{ category.id }}" data-disclaimer="yes" data-name="{{ category.pretty_name }}" data-useregions="no">{{ category.pretty_name }}</a></li>
+            {% else %}
+            <li class="post_li"><a href="{{ SITE_URL }}/post-ad/{{ category.section }}/{{ category.id }}" data-category="{{ category.id }}" data-name="{{ category.pretty_name }}" data-useregions="no">{{ category.pretty_name }}</a></li>
+            {% endif %}
+          {% endfor %}
+
+          </ul>
+
+          {% if section == "housing" %}
+            <p style="margin:1em;"><span id="fairHousing">All real estate advertising is subject to Title VIII of the Civil Rights Act of 1968, as amended ("<a href="http://www.hud.gov/offices/fheo/FHLaws/yourrights.cfm">Fair Housing Act</a>"). The Fair Housing Act prohibits discrimination in the sale, rental and financing of dwellings, and in other housing-related transactions, based on race, color, national origin, religion, sex, familial status (including people securing custody of children under the age of 18), and handicap (disability). The Site will not knowingly accept any real estate advertising which is in violation of any applicable law. You must not submit or post any ad which discriminates based on race, color, national origin, religion, sex, sexual orientation, familial status and or handicap or disability.</span></p>
+          {% endif %}
+
+          </div><!-- .chooseCategory -->
+        
+    </div> 
+{% endfor %}
+  
+{% if cities %}
+  <div class="jsChooser jsChooser_region" id="chooser_region" style="display:none;">
+      <h2>choose a location</h2>
+      
+          <div class="chooseRegion" style="width:99%;max-width:540px;">
+          <ul class="getRegion" style="column-count:2;-webkit-column-count:2;-moz-column-count:2;column-gap:3px;-webkit-column-gap:3px;-moz-column-gap:3px;line-height:2.5;">
+        
+        {% for c in cities %}
+          <li>
+            <a href="{{ SITE_URL }}/post-ad/" data-region="{{c.id}}">{{ c.name }}, {{ c.short_state }}</a>
+          </li>
+        {% endfor %}
+          </ul>
+          </div><!-- .chooseRegion -->
+    </div>
+{% endif %}
+
+  
+  
+  <div class="jsChooser jsChooser_disclaimer" style="display:none;">
+    <div class="disclaimerAgreement">
+      <h2>Posting Rules</h2>
+        <p>You agree to the following when posting in this category:</p>
+          <ul>
+            <li style="background-color:#ffb; padding:0 2px">I will not post graphics or photographs which depict actual or simulated sexual acts;</li>
+ <li style="background-color:#ffb; padding:0 2px">I will not post any 
+solicitation directly or in "coded" fashion for any illegal service, 
+including exchanging sexual favors for money or other valuable 
+consideration;</li>
+ <li style="background-color:#ffb; padding:0 2px">I will not post any material on the Site that exploits minors in any way;</li>
+ <li style="background-color:#ffb; padding:0 2px">I will not post any material on the Site that in any way constitutes or assists in human trafficking;</li>
+ <li style="background-color:#ffb; padding:0 2px">I am at least 18 years of age or older and not considered to be a minor in my state of residence.</li>
+</ul>
+<p style="color:red; font-weight:bold">Any post exploiting a minor in any way will be subject to criminal prosecution and will be reported to the&nbsp;<a href="http://www.cybertipline.com/" style="color:red">Cybertipline</a>&nbsp;for law enforcement.</p>
+<p> Postings violating these rules and our Terms of Use are subject to removal without refund.</p>
+
+      <p></p>
+      <a id="disclaimer_continue" href="{{ SITE_URL }}/post-ad/">Continue</a>
+      <p></p>
+    </div>
+  </div>
+  <script>
+
+  function updateHistory(url, step){
+    if (url){
+      var stateObj = {postad: step};
+      history.pushState(stateObj, "", url);
+    }
+  }
+
+  
+  jQuery(".jsChooser_section").show();
+  var stateObj = {postad: "section"};
+  history.replaceState(stateObj, "", window.location.href);
+  
+  {% if catUseRegions %}
+    var catUseRegions = true;
+  {% else %}
+    var catUseRegions = false;
+  {% endif %}
+
+  jQuery(".jsChooser_section li a").click(function(e){
+    e.preventDefault();
+    showDisclaimer = (jQuery(this).attr("data-disclaimer")=="yes")?true:false;
+    if (showDisclaimer) {
+      jQuery(".jsChooser").hide();
+      jQuery(".jsChooser_disclaimer").show();
+      var mySection = jQuery(this).attr("data-name")
+      jQuery("#cookieCrumb #crumbSectionName").attr("section-name", mySection);
+      jQuery("#cookieCrumb #crumbSectionName").html(" &gt; "+mySection);
+      jQuery("#cookieCrumb #crumbCategoryName").text("");
+      updateHistory(jQuery(this).attr("href"), "disclaimer");
+    } else {
+      var mySection = jQuery(this).attr("data-section");
+      jQuery(".jsChooser").hide();
+      jQuery(".jsChooser_category[data-section='"+mySection+"']").show();
+      jQuery("#cookieCrumb #crumbSectionName").html(" &gt; "+jQuery(this).attr("data-name"));
+      jQuery("#cookieCrumb #crumbCategoryName").text("");
+      updateHistory(jQuery(this).attr("href"), "category");
+    }
+  });
+
+jQuery("#disclaimer_continue").click(function(e){
+  if (catUseRegions){
+    e.preventDefault();
+    var myCategory = jQuery(this).attr("data-category");
+    var mySlug = jQuery(this).attr("data-slug");
+    jQuery(".jsChooser").hide();
+    // update all other links with category and section
+    jQuery(".jsChooser_region li a").each(function(){
+      var myHref = jQuery(this).attr("href");
+      var dataregion = jQuery(this).attr("data-region");
+      myHref = myHref.replace(/post-ad/, 'post-ad/'+mySlug+'/'+myCategory+'/?region='+dataregion+'');
+      jQuery(this).attr('href', myHref);
+    });
+    jQuery("#chooser_region").show();
+    //updateHistory(jQuery(this).attr("href"), "region");
+    jQuery("#cookieCrumb #crumbCategoryName").html(" &gt; "+jQuery(this).attr("data-name"));
+  };
+});
+
+  jQuery(".jsChooser_category li a").click(function(e){
+    showAdultDisclaimer = (jQuery(this).attr("data-disclaimer")=="yes")?true:false;
+    if (catUseRegions){
+      e.preventDefault();
+      if (showAdultDisclaimer) {
+        var myCategory = jQuery(this).attr("data-category");
+        var mySlug = jQuery(this).attr("category-slug");
+        jQuery(".jsChooser").hide();
+        jQuery("#disclaimer_continue").attr("href").replace(/post-ad/, 'post-ad/'+mySlug+'/');
+        jQuery("#disclaimer_continue").attr("data-category", myCategory);
+        jQuery("#disclaimer_continue").attr("data-slug", mySlug);
+        jQuery("#disclaimer_continue").attr("data-name", "region");
+        jQuery(".jsChooser_disclaimer").show();
+        var mySection = jQuery(this).attr("data-name")
+        jQuery("#cookieCrumb #crumbSectionName").attr("section-name", mySlug);
+        jQuery("#cookieCrumb #crumbSectionName").html(" &gt; "+mySlug);
+        jQuery("#cookieCrumb #crumbCategoryName").text("");
+        updateHistory(jQuery(this).attr("href"), "disclaimer");
+      } else {
+        var myCategory = jQuery(this).attr("data-category");
+        var mySection = jQuery(this).closest(".jsChooser").attr("data-section");
+        jQuery(".jsChooser").hide();
+        // update all other links with category and section
+        jQuery(".jsChooser_region li a").each(function(){
+          var myHref = jQuery(this).attr("href");
+          var dataregion = jQuery(this).attr("data-region");
+          myHref = myHref.replace(/post-ad/, 'post-ad/'+mySection+'/'+myCategory+'/?region='+dataregion+'');
+        jQuery(this).attr('href', myHref);
+        });
+      };
+    };
+    if (showAdultDisclaimer) {
+        e.preventDefault();
+        var myCategory = jQuery(this).attr("data-category");
+        var mySlug = jQuery(this).attr("category-slug");
+        jQuery(".jsChooser").hide();
+        var myHref = jQuery("#disclaimer_continue").attr("href");
+        myHref = myHref.replace(/post-ad/, 'post-ad/'+mySlug+'/'+myCategory+'');
+        jQuery("#disclaimer_continue").attr('href', myHref);
+        jQuery(".jsChooser_disclaimer").show();
+      } else {
+        jQuery("#chooser_region").show();
+        updateHistory(jQuery(this).attr("href"), "region");
+      }; 
+    jQuery("#cookieCrumb #crumbCategoryName").html(" &gt; "+jQuery(this).attr("data-name"));
+  });
+
+  jQuery(window).bind("popstate", function(e) {
+    var state = e.originalEvent.state;
+    if (state){
+      if (state.postad){
+        var step = state.postad;
+        var urlParams = window.location.href.split('?')[1];
+        if (urlParams) var externals = urlParams.split('&');
+        var vars = [];
+        if (externals){
+          for(var i = 0; i < externals.length; i++){
+            hash = externals[i].split('=');
+            vars[hash[0]] = hash[1];
+          }
+        }
+        jQuery(".jsChooser").hide();
+        if (step=="disclaimer"){
+          jQuery(".jsChooser_disclaimer").show();
+        } else if (step=="category"){
+          var mySection = vars["section"];
+          jQuery("#cookieCrumb #crumbCategoryName").html("");
+          jQuery(".jsChooser_category[data-section='"+mySection+"']").show();
+        } else {
+          jQuery("#cookieCrumb #crumbSectionName").html("");
+          jQuery("#cookieCrumb #crumbCategoryName").html("");
+          jQuery(".jsChooser_section").show();
+        }
+
+      }
+    }
+  });
+  </script>
+
+  </div>
+
+  <div style="clear:both;"></div>
+    </div>
+    <!-- .mainBody -->
+  
+    <div id="tlFooter">
+      <div class="footerText">
+        <a href="{{ SITE_URL }}/account/">my account</a> |
+        <a href="{{ SITE_URL }}/account/buy-credits/">buy credits</a> |
+        <a href="{{ SITE_URL }}/contact/">contact</a> |
+        <a href="{{ SITE_URL }}/privacy-policy/">privacy</a> |
+        <a href="{{ SITE_URL }}/terms-of-use/">terms</a> |
+        <a href="{{ SITE_URL }}/help/">help</a> | 
+        <a href="{{ SITE_URL }}/user-safety/">safety</a> | 
+        &nbsp;©&nbsp;2017&nbsp;<a href="{{ SITE_URL }}/all-cities/">{{ DOMAIN }}</a>
+      </div><!-- .footerText -->
+      
+      <div class="footerDisclaimer">
+        {{ DOMAIN }} and its subsites are interactive computer services that enable access by multiple users and should not be treated as the publisher or speaker of any information provided by another information content provider.     
+      </div><!-- .footerDisclaimer -->
+    </div><!-- #tlFooter -->
+
+  </div><!-- #pageBackground -->
+  
+</body></html>

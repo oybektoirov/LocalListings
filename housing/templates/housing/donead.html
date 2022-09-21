@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>done | {{ DOMAIN }}</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="noindex, nofollow">
+      <link rel="stylesheet" type="text/css" href="{% static "global-postad.css" %}">
+      <link rel="canonical" href="{{ SITE_URL }}/post-ad/">
+      <script type="text/javascript" src="{% static "jquery-1.7.2.min.js" %}" ></script>
+      <link rel="stylesheet" type="text/css" href="{% static "pure-min.css" %}">
+      <link rel="shortcut icon" href="{% static 'images/po_favicon.ico' %}">
+
+      <script type="text/javascript">
+         (function($){Menu=function(e){return e&&e.on_before_open&&(this.on_before_open=e.on_before_open),$(document).ready(function(){var e=".dimmer",t=".sidebar",n=".sidebar-nav",s=".sidebar-toggle";this.elements={menu:$(t),dimmer:$(e),trigger:$(s),wrapper:$(n)},this.elements.trigger.on("click",this.toggle.bind(this)),this.elements.dimmer.on("click",this.close.bind(this)),$(window).on("resize orientationchange",this.set_height.bind(this)),this.state="closed"}.bind(this)),this},Menu.prototype.toggle=function(){"open"==this.state?this.close():this.open()},Menu.prototype.open=function(){if("closed"==this.state){this.on_before_open();var e=this.elements.wrapper,t=(this.elements.dimmer,this.elements.trigger,this.elements.menu);e.addClass("active"),this.set_height(),setTimeout(function(){e.addClass("open"),t.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",function(){this.state="open"}.bind(this))}.bind(this),0)}},Menu.prototype.set_height=function(){this.elements.wrapper.css("min-height","");var e=$(document).height();this.elements.wrapper.css("min-height",e+"px")},Menu.prototype.close=function(){if("open"==this.state){var e=this.elements.menu,t=this.elements.wrapper;t.removeClass("open"),e.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",function(){t.removeClass("active"),this.state="closed"}.bind(this))}};var menu=new Menu({on_before_open:function(){search&&"open"==search.state&&search.elements.trigger.css("z-index","9998")}});Search=function(e){return e&&e.on_before_open&&(this.on_before_open=e.on_before_open),$(document).ready(function(){var e=".search-wrap",t=".search-trigger",n='.search-wrap input[type="text"]';this.elements={menu:$(e),trigger:$(t),keywords:$(n)},this.elements.trigger.on("click",this.toggle.bind(this)),this.elements.keywords.on("click focus keypress",this.open.bind(this)),this.state="closed"}.bind(this)),this},Search.prototype.toggle=function(){"open"==this.state?this.close():this.open(),this.elements.trigger.css("z-index",10004)},Search.prototype.open=function(){this.on_before_open();var e=this.elements.menu,t=this.elements.trigger;e.addClass("open"),t.addClass("active"),this.elements.trigger.css("z-index",10004),this.state="open"},Search.prototype.close=function(){var e=this.elements.menu,t=this.elements.trigger;e.removeClass("open"),t.removeClass("active"),this.state="closed"};var search=new Search({on_before_open:function(){menu.close()}});})(jQuery);
+      </script>
+      <script>dataLayer=[];</script>
+    {% if GOOGLE_ANALYTICS_KEY %}
+      <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', '{{ GOOGLE_ANALYTICS_KEY }}', 'auto');ga('send', 'pageview');</script>
+    {% endif %}
+    </head>
+
+
+    <body id="index">
+
+
+<!-- TOP NAV -->
+    <div id="tlHeader" class="siteHeader">
+      <div id="logo" class="tlBlock">
+          <a href="{{ city_url }}/" style='background-image: url("{% static 'images/logo_main.png' %}")!important;'>home</a>    
+      </div>
+     <div id="community" class="tlBlock">
+          <p>
+          <span class="comm">
+          <a class="pure-button pure-button-primary" href="{{ SITE_URL }}/post-ad/">post ad</a>
+          </span>&nbsp;
+            <span class="city">
+              {{ city.name }},&nbsp;{{ city.short_state }}
+            </span>
+            &nbsp;
+            <span class="comm">
+              local&nbsp;classifieds
+            </span>
+          </p>
+      </div><!-- #tlBlock -->
+    </div><!-- #tlHeader -->
+
+<!-- END TOP NAV -->
+
+
+  <div id="pageBackground">
+    <div class="mainBody">
+
+  
+  <div style="max-height: 99999px;">
+
+    <h2>3. done</h2>
+   <ul id="stepButtons">
+    <li class="postAdButtonOff">
+      <div class="indexSectionHeader">1. write ad</div>
+    </li>
+    <li class="postAdButtonOff">
+      <div class="indexSectionHeader">2. preview ad</div>
+    </li>
+    <li class="postAdButtonOn">
+      <div class="indexSectionHeader">3. done</div>
+    </li>
+  </ul><br>
+      
+      <p><b>Done!</b> Your ad has been created.</p>
+      <p>It will show up in the listings in a few minutes. Please check your email inbox or spam folder for the link to view/edit/delete your ad. </p>
+      <p>Email is sent to: <b>{{ ad.email }}</b></p>
+      <p>To post another ad, <a href="{{ SITE_URL }}/post-ad/">click here</a>.</p>
+
+      <p><span data-value="success">Thank you</span><br>
+      <b class="emailSig"><a href="{{ city_url }}/">{{ city.short_name }}.{{ DOMAIN }}</a></b></p>
+
+  </div>
+
+  <div style="clear:both;"></div>
+    </div><!-- .mainBody -->
+  
+    <div id="tlFooter">
+      <div class="footerText">
+        <a href="{{ SITE_URL }}/account/">my account</a> |
+        <a href="{{ SITE_URL }}/account/buy-credits/">buy credits</a> |
+        <a href="{{ SITE_URL }}/contact/">contact</a> |
+        <a href="{{ SITE_URL }}/privacy-policy/">privacy</a> |
+        <a href="{{ SITE_URL }}/terms-of-use/">terms</a> | 
+        <a href="{{ SITE_URL }}/user-safety/">safety</a> | 
+        &nbsp;©&nbsp;2017&nbsp;<a href="{{ SITE_URL }}/all-cities/">{{ DOMAIN }}</a>
+      </div><!-- .footerText -->
+      
+      <div class="footerDisclaimer">
+        {{ DOMAIN }} and its subsites are interactive computer services that enable access by multiple users and should not be treated as the publisher or speaker of any information provided by another information content provider.     
+      </div><!-- .footerDisclaimer -->
+    </div><!-- #tlFooter -->
+    
+
+  </div><!-- #pageBackground -->
+  </body></html>

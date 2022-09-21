@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>login | {{ PROJECT_NAME }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static "global.css" %}">
+    <script type="text/javascript" src="{% static "jquery-1.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "pure-min.css" %}">
+    <link rel="shortcut icon" href="{% static 'images/po_favicon.ico' %}">
+    {% if GOOGLE_ANALYTICS_KEY %}
+      <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', '{{ GOOGLE_ANALYTICS_KEY }}', 'auto');ga('send', 'pageview');</script>
+    {% endif %}
+  </head>
+
+  <body id="index" class="CentralView">
+
+    <div id="tlHeader" class="siteHeader">
+      <div id="logo" class="tlBlock">
+          <a href="{{ SITE_URL }}/" style='background-image: url("{% static 'images/logo_main.png' %}")!important;'>home</a>    
+      </div>
+    </div>
+
+  <h2>login</h2>
+  <div id="centralIndexModule">
+    <div class="mFormWrap mLoginForm">
+        {% if error %}
+           <p style="color: red;">Email or password is incorrect, please try again.</p>
+        {% endif %} 
+      <div id="loginForm">
+        <form name="centralLogin" class="pure-form" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+          <label for="centralEmail">Email</label>
+          <input name="email" type="email" value="{% if email %}{{ email }}{% endif %}" required>
+          <label for="centralPassword">Password</label>
+          <input name="password" autocomplete="off" value="" id="centralPassword" type="password" required>
+          <p class="forgotPW"><a href="{% url 'password_reset_request' %}">Forgot your password?</a></p>
+          {% if next %}
+            <input type="hidden" name="next" value="{{ next }}">
+          {% endif %}
+          <input value="Login" class="pure-button pure-button-primary" id="loginButton" type="submit">
+        </form>
+        <div id="loginFormBtm">
+          <label>Don't have an account?</label>
+          <p><a class="pure-button pure-button-primary" href="{% url 'create' %}">Sign up for an account</a></p>
+        </div><!-- end #loginFormBtm -->
+      </div><!-- end loginForm -->  
+    </div><!-- end .mFormWrap -->
+  </div><!-- #centralIndexModule -->
+  <div style="clear:both;"></div>
+
+  <div id="textNavFooter">
+    <a class="first" href="{{ SITE_URL }}/account/">my account</a> |
+    <a href="{{ SITE_URL }}/account/buy-credits/">buy credits</a> |
+    <a href="{{ SITE_URL }}/contact/">contact</a> |
+    <a href="{{ SITE_URL }}/help/">help</a> |
+    <a href="{{ SITE_URL }}/privacy-policy/">privacy</a> |
+    <a class="secLast" href="{{ SITE_URL }}/terms-of-use/">terms</a> |
+    <a href="{{ SITE_URL }}/user-safety/">safety</a>
+    <p>©&nbsp;2017
+    <a href="{{ SITE_URL }}/all-cities/">{{ PROJECT_NAME }}</a></p>
+  </div>
+</body></html>

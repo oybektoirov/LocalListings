@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>create account | {{ PROJECT_NAME }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static "global.css" %}">
+    <script type="text/javascript" src="{% static "jquery-1.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "pure-min.css" %}">
+    <link rel="shortcut icon" href="{% static 'images/po_favicon.ico' %}">
+    {% if GOOGLE_ANALYTICS_KEY %}
+      <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', '{{ GOOGLE_ANALYTICS_KEY }}', 'auto');ga('send', 'pageview');</script>
+    {% endif %}
+  </head>
+
+  <body id="CreateAccount" class="CentralView">
+
+    <div id="tlHeader" class="siteHeader">
+      <div id="logo" class="tlBlock">
+          <a href="{{ SITE_URL }}/" style='background-image: url("{% static 'images/logo_main.png' %}")!important;'>home</a>    
+      </div>
+    </div>
+    
+    <h2>create account</h2>
+    <div class="mFormWrap">
+      {% if emailmatch_error %}
+           <p style="color: red;">Emails did not match, please retype your email.</p>
+      {% elif passwordmatch_error %}
+           <p style="color: red;">Passwords did not match, please retype your password.</p>
+      {% elif weakpassword_error %}
+           <p style="color: red;">Password must have at least 8 characters.</p>
+      {% elif terms_error %}
+           <p style="color: red;">You must agree to the terms of service.</p>
+      {% elif userexists_error %}
+           <p style="color: red;">Account with that email already exists, please login.</p>
+      {% elif recaptcha_error %}
+           <p style="color: red;">Error with recaptcha, please try again.</p>
+      {% endif %}
+    <div id="loginForm">
+      <form name="createAccount" class="pure-form" method="post" action="{% url 'create' %}">
+      {% csrf_token %}
+        <label for="createEmail">Email</label>
+        <input name="email" id="createEmail" autocomplete="off" value="{% if email %}{{email}}{% endif %}" type="email" required>
+       
+        <label for="createEmailConfirmation">Confirm Email<span id="emailMatchTest"></span></label>
+        <input name="email_confirm" id="createEmailConfirmation" autocomplete="off" type="email" required>
+      
+        <label for="password">Password<span id="passwordStrengthTest"></span></label>
+        <input name="password" id="password" autocomplete="off" value="" type="password" required>
+      
+        <label for="passwordConfirm">Confirm Password<span id="passwordMatchTest"></span></label>
+        <input name="password_confirm" id="passwordConfirm" autocomplete="off" value="" type="password" required>
+      
+        <div class="terms">
+          <input name="termsAgreement" value="true" style="vertical-align:text-top;margin-left:2px;margin-right:.3em;" type="checkbox" required>
+          By creating an account, I agree to the <a href="{% url 'terms_of_use' %}" target="_blank">terms of use</a>.
+        </div>
+
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+        <div id="recaptcha">
+          <div class="g-recaptcha" data-sitekey="{{ recaptcha_public_key }}"></div>
+        </div>
+        <br>
+        <p id="captcha-message" style="display:none;color:red;">Please click on "I'm not a robot" checkbox</p>
+      
+        <input value="Create account" class="pure-button pure-button-primary" id="loginButton" type="submit">
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#passwordStrengthTest').html(checkStrength($('#password').val()));
+
+    $('#password').keyup(function() {
+      $('#passwordStrengthTest').html(checkStrength($('#password').val()));
+    });
+
+    function checkStrength(password) {
+      $('#passwordMatchTest').html(checkPasswordMatch(password, $('#passwordConfirm').val()));
+
+      if (password.length == 0) {
+        return null;
+      } else if (password.length < 8) {
+        $('#passwordStrengthTest').removeClass().addClass('short');
+        return 'too short';
+      } else {
+        var strength = 0;
+
+        // long password
+        if (password.length >= 10) { strength += 1; }
+        
+        // uppercase & lowercase
+        if (password.match(/([a-z])/) && password.match(/([A-Z])/)) { strength += 1; }
+        
+        // letters & numbers
+        if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) { strength += 1; }
+
+        // one special character
+        if (password.match(/([^\w])/)) { strength += 1; }
+
+        // two special characters
+        if (password.match(/([^\w].*[^\w])/)) { strength += 1; }
+
+        // strength determination
+        if (strength < 2) {
+          $('#passwordStrengthTest').removeClass().addClass('weak');
+          return 'weak';
+        } else if (strength == 2) {
+          $('#passwordStrengthTest').removeClass().addClass('good');
+          return 'good';
+        } else {
+          $('#passwordStrengthTest').removeClass().addClass('strong');
+          return 'strong';
+        }
+      }
+    }
+
+    $('#passwordConfirm').keyup(function() {
+      $('#passwordMatchTest').html(checkPasswordMatch($('#password').val(), $('#passwordConfirm').val()));
+    });
+
+    function checkPasswordMatch(password, passwordConfirm) {
+      if (passwordConfirm.length == 0) {
+        $('#passwordMatchTest').removeClass();
+        return null;
+      } else if (password == passwordConfirm) {
+        $('#passwordMatchTest').removeClass().addClass('match');
+        return 'match';
+      } else {
+        $('#passwordMatchTest').removeClass().addClass('noMatch');
+        return 'mismatch'
+      }
+    }
+  });
+  </script>
+  <div id="textNavFooter">
+    <a class="first" href="{{ SITE_URL }}/account/">my account</a> |
+    <a href="{{ SITE_URL }}/account/buy-credits/">buy credits</a> |
+    <a href="{{ SITE_URL }}/contact/">contact</a> |
+    <a href="{{ SITE_URL }}/help/">help</a> |
+    <a href="{{ SITE_URL }}/privacy-policy/">privacy</a> |
+    <a class="secLast" href="{{ SITE_URL }}/terms-of-use/">terms</a> |
+    <a href="{{ SITE_URL }}/user-safety/">safety</a>
+    <p>©&nbsp;2017
+    <a href="{{ SITE_URL }}/all-cities/">{{ PROJECT_NAME }}</a></p>
+  </div>
+</body></html>

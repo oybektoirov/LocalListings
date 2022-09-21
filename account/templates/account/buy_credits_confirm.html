@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>confirm credit purchase | {{ PROJECT_NAME }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static "global.css" %}">
+    <script type="text/javascript" src="{% static "jquery-1.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "pure-min.css" %}">
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <link rel="shortcut icon" href="{% static 'images/po_favicon.ico' %}">
+    {% if GOOGLE_ANALYTICS_KEY %}
+      <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', '{{ GOOGLE_ANALYTICS_KEY }}', 'auto');ga('send', 'pageview');</script>
+    {% endif %}
+  </head>
+
+  <body id="BuyCreditsConfirm" class="CentralView">
+
+    <div class="nav-trigger sidebar-toggle" style='background-image: url("{% static 'images/index-menu.svg' %}");'></div>
+
+    <div class="sidebar-nav">
+      <div class="sidebar">
+      <div class="inner">
+      
+      <div id="postAdButton">
+        <a class="pure-button pure-button-primary" href="{% url 'postad' %}">post ad</a>
+      </div>
+      
+      <ul class="top">
+        <li class="nav-item"><a href="{{ SITE_URL }}/">home</a></li>
+        <li class="nav-item"><a href="{{ SITE_URL }}/account/">my account</a></li>
+        <li class="nav-item"><a href="{{ SITE_URL }}/account/buy-credits/">buy credits</a></li>
+        <li class="nav-item"><a href="{{ SITE_URL }}/account/change-password/">change password</a></li>
+        <li class="nav-item"><a href="{{ SITE_URL }}/account/logout/">logout</a></li>
+      </ul><br>
+      <ul class="list">
+        <li class="nav-item">
+          <a href="{{ SITE_URL }}/all-cities/">all cities</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="dimmer"></div>
+</div><!-- .sidebar-nav -->
+
+<!-- TOP NAV -->
+    <div id="tlHeader" class="siteHeader">
+      <div id="logo" class="tlBlock">
+          <a href="{{ SITE_URL }}" style='background-image: url("{% static 'images/logo_main.png' %}")!important;'>home</a>    
+      </div>
+     <div id="community" class="tlBlock">
+          <p>
+          <span class="comm">
+          <a class="pure-button pure-button-primary" href="{% url 'postad' %}">post ad</a>
+          </span>&nbsp;
+            <span class="city">
+              buy credits
+            </span>
+          </p>
+      </div><!-- #tlBlock -->
+    </div><!-- #tlHeader -->
+<!-- END TOP NAV -->
+  
+
+  <div class="mFormWrap">
+  
+  <div id="tableTopper">
+    <div id="currentUser">
+      <div class="userEmail">account: {{ user.email }}</div><br>
+    </div>
+  </div><!-- #tableTopper -->
+
+  <div id="loginForm">
+    <form id="confirm_Form" name="f" class="pure-form" method="post" action="{{ SITE_URL }}/account/buy-credits/">
+    {% csrf_token %}
+    {% if try_again_error %}
+      <div id="error_explanation" style="color: red;text-align: center;"><p>Something went wrong, please try again.</p></div>
+    {% endif %}
+    <p style="text-align: center; margin-left:16px;">Confirm your payment, click on "I'm not a robot" checkbox.</p>
+    <input type="hidden" name="stripeTokenDone" value="{{ token }}">
+    <input type="hidden" name="amount" value="{{ amount }}">
+    <div class="terms">
+      <p><input name="termsAgreement" value="true" style="vertical-align:text-top;margin-left:16px;margin-right:.3em;" type="checkbox" required>I agree to the <a href="{% url 'terms_of_use' %}" target="_blank">terms of use</a>.</p>
+    </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <div id="recaptcha">
+      <div class="g-recaptcha" data-sitekey="{{ recaptcha_public_key }}" data-size="compact"></div>
+    </div>
+    <br>
+    <p id="captcha-message" style="display:none;color:red;">Please click on "I'm not a robot" checkbox</p>
+    <button class="pure-button pure-button-primary" id="loginButton" type="submit">Confirm</button>
+    <script>
+    $('#confirm_Form').submit(function() {
+      jQuery("#loginButton").attr("disabled", true);
+    });
+    </script>
+    </form>
+  </div><!-- #loginForm -->
+
+  </div><!-- .mFormWrap --><br>
+
+  <div id="textNavFooter">
+    <a class="first" href="{{ SITE_URL }}/account/">my account</a> |
+    <a href="{{ SITE_URL }}/account/buy-credits/">buy credits</a> |
+    <a href="{{ SITE_URL }}/contact/">contact</a> |
+    <a href="{{ SITE_URL }}/help/">help</a> |
+    <a href="{{ SITE_URL }}/privacy-policy/">privacy</a> |
+    <a class="secLast" href="{{ SITE_URL }}/terms-of-use/">terms</a> |
+    <a href="{{ SITE_URL }}/user-safety/">safety</a>
+    <p>©&nbsp;2017
+    <a href="{{ SITE_URL }}/all-cities/">{{ PROJECT_NAME }}</a></p>
+  </div>
+    <script type="text/javascript">
+      (function($){Menu=function(e){return e&&e.on_before_open&&(this.on_before_open=e.on_before_open),$(document).ready(function(){var e=".dimmer",t=".sidebar",n=".sidebar-nav",s=".sidebar-toggle";this.elements={menu:$(t),dimmer:$(e),trigger:$(s),wrapper:$(n)},this.elements.trigger.on("click",this.toggle.bind(this)),this.elements.dimmer.on("click",this.close.bind(this)),$(window).on("resize orientationchange",this.set_height.bind(this)),this.state="closed"}.bind(this)),this},Menu.prototype.toggle=function(){"open"==this.state?this.close():this.open()},Menu.prototype.open=function(){if("closed"==this.state){this.on_before_open();var e=this.elements.wrapper,t=(this.elements.dimmer,this.elements.trigger,this.elements.menu);e.addClass("active"),this.set_height(),setTimeout(function(){e.addClass("open"),t.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",function(){this.state="open"}.bind(this))}.bind(this),0)}},Menu.prototype.set_height=function(){this.elements.wrapper.css("min-height","");var e=$(document).height();this.elements.wrapper.css("min-height",e+"px")},Menu.prototype.close=function(){if("open"==this.state){var e=this.elements.menu,t=this.elements.wrapper;t.removeClass("open"),e.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",function(){t.removeClass("active"),this.state="closed"}.bind(this))}};var menu=new Menu({on_before_open:function(){search&&"open"==search.state&&search.elements.trigger.css("z-index","9998")}});Search=function(e){return e&&e.on_before_open&&(this.on_before_open=e.on_before_open),$(document).ready(function(){var e=".search-wrap",t=".search-trigger",n='.search-wrap input[type="text"]';this.elements={menu:$(e),trigger:$(t),keywords:$(n)},this.elements.trigger.on("click",this.toggle.bind(this)),this.elements.keywords.on("click focus keypress",this.open.bind(this)),this.state="closed"}.bind(this)),this},Search.prototype.toggle=function(){"open"==this.state?this.close():this.open(),this.elements.trigger.css("z-index",10004)},Search.prototype.open=function(){this.on_before_open();var e=this.elements.menu,t=this.elements.trigger;e.addClass("open"),t.addClass("active"),this.elements.trigger.css("z-index",10004),this.state="open"},Search.prototype.close=function(){var e=this.elements.menu,t=this.elements.trigger;e.removeClass("open"),t.removeClass("active"),this.state="closed"};var search=new Search({on_before_open:function(){menu.close()}});})(jQuery);
+    </script>
+</body></html>

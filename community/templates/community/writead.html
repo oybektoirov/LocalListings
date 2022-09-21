@@ -1,0 +1,827 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>write ad | {{ DOMAIN }}</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="noindex, nofollow">
+      <link rel="stylesheet" type="text/css" href="{% static "global-postad.css" %}">
+      <link rel="canonical" href="{{ SITE_URL }}/post-ad/">
+      <script type="text/javascript" src="{% static "jquery-1.7.2.min.js" %}" ></script>
+      <script type="text/javascript" src="{% static "jquery.validate.min.js" %}" ></script>
+      <link rel="stylesheet" type="text/css" href="{% static "pure-min.css" %}">
+      <link rel="shortcut icon" href="{% static 'images/po_favicon.ico' %}">
+    {% if GOOGLE_ANALYTICS_KEY %}
+      <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', '{{ GOOGLE_ANALYTICS_KEY }}', 'auto');ga('send', 'pageview');</script>
+    {% endif %}
+    </head>
+
+    <body id="PostAdPPI">
+
+<!-- TOP NAV -->
+    <div id="tlHeader" class="siteHeader">
+      <div id="logo" class="tlBlock">
+          <a href="{{ city_url }}/" style='background-image: url("{% static 'images/logo_main.png' %}")!important;'>home</a>    
+      </div>
+     <div id="community" class="tlBlock">
+          <p>
+            <span class="city">
+              {{ city.name }},&nbsp;{{ city.short_state }}
+            </span>
+            &nbsp;
+            <span class="comm">
+              local&nbsp;classifieds
+            </span>
+          </p>
+      </div><!-- #tlBlock -->
+    </div><!-- #tlHeader -->
+<!-- END TOP NAV -->
+  
+
+  <div id="pageBackground">
+
+    <div class="mainBody">
+    <div style="max-height: 99999px;">
+
+  
+    <form name="f" id="adform" method="post" class="pure-form" action="{{ SITE_URL }}/post-ad/{{ category.section }}/{{ category.id }}/?region={{city.id}}" enctype="multipart/form-data">
+    {% csrf_token %}
+  <input type="hidden" name="lang" value="en-us">
+  <input type="hidden" name="section" value="{{ category.section }}">
+  <input type="hidden" name="category" value="{{ category.id }}">
+  <input type="hidden" name="nextstep" value="2">
+  {%if ad %}
+    <input type="hidden" name="adid" value="{{ ad.id }}">
+  {% endif %}
+
+  
+  <h2>1. write ad&nbsp;</h2>
+   <ul id="stepButtons">
+    <li class="postAdButtonOn">
+      <div class="indexSectionHeader">1. write ad</div>
+    </li>
+    <li class="postAdButtonOff">
+      <div class="indexSectionHeader">2. preview ad</div>
+    </li>
+    <li class="postAdButtonOff">
+      <div class="indexSectionHeader">3. done</div>
+    </li>
+  </ul>
+
+
+    <div class="editAdField abound">
+      <div class="editAdTitles">
+        Post away. Posting is free.
+      </div>
+    </div>
+  
+
+  <div class="editAdField">
+    <div class="header">
+      title <span id="titlespan" class="req" style="font-size:14px;font-weight:normal;">*</span><span id="titlefieldmessage"></span>
+    </div>
+    <div class="content">
+    {% if ad %}
+      <input type="text" name="title" id="titlefield" maxlength="120" class="required largeInput" value="{{ ad.title }}" required>
+    {% else %}
+      <input type="text" name="title" id="titlefield" maxlength="120" class="required largeInput" value="" required>
+    {% endif %}
+    </div>
+  </div>
+
+  
+  <div class="editAdField">
+    <div class="header">
+      description <span id="textspan" class="req" style="font-size:14px;font-weight:normal;">*</span><span id="textfieldmessage"></span>
+    </div>
+    <div class="content">
+    {% if ad %}
+      <textarea name="body" id="textfield" class="required largeInput description" required>{{ ad.body }}</textarea>
+    {% else %}
+      <textarea name="body" id="textfield" class="required largeInput description" required></textarea>
+    {% endif %}
+    </div>
+  </div>
+  
+    <div class="editAdField" id="emailConfirm">
+      <div class="header" id="emaildiv">
+        your email address <span id="titlespan" class="req" style="font-size:14px;font-weight:normal;">*</span>
+      </div>
+      <div id="emailFields" class="content">
+        
+        <div class="subset padBottom">
+          <div class="subsetContent">
+          {% if user.is_authenticated %}
+              <input type="email" name="email" class="mediumInput" value="{{ user.email }}" readonly>
+          {% elif ad and ad.email %}
+              <input type="email" name="email" class="mediumInput" value="{{ ad.email }}">
+          {% else %}
+              <input type="email" name="email" class="mediumInput" value="" required>  
+          {% endif %}     
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div id="imageEditModule">
+      <span class="editAdTitles"><b>add images</b></span><br>
+      <span class="editAdText">maximum 10 images, max size 10mb each.</span>
+      <div id="editAdPhotoLayout">
+      {% for image_name in images %}
+        <div class="imageEditItem" data-index="{{ forloop.counter }}" draggable="true" style="opacity: 1; display: block;"><div class="imgIndex"><span>{{ forloop.counter }}</span></div><div class="imgBox"><img src="https://s3.amazonaws.com/{{ S3_IMG_BUCKET }}/small/{{ image_name }}" name="{{ image_name }}" alt="" draggable="true"></div><div class="imgRemoveLink"><a href="#" style="display: inline;">remove</a></div></div>
+      {% endfor %}
+        
+      </div><!-- #imageEditLayout -->
+      <div id="imageUploadProgress" style="display:none;">
+        <span class="uploadProgressHeader">image <span></span></span>: <span class="uploadProgressCurrent">0%</span>
+      </div>
+      
+      <div id="addImageLinkCont" class="addImageItem">
+        <input type="button" id="addImageLink" value="Choose Images">
+        <input id="addImageInput" type="file" name="image" size="40" multiple="" accept="image/*" style="display:none;">
+        <input type="hidden" class="imageInput" name="allimages" value="">
+      </div>     
+    </div><!-- .imageEditModule -->
+    
+
+    <style>
+      #editAdPhotoLayout div#tempBox{
+        width:242px;
+      }
+      #editAdPhotoLayout div.imageEditItem {
+        width: 262px;
+        position: relative;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgRemoveLink {
+        margin-right: 20px;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgProgress {
+          float: right;
+          height: 102px;
+          width: 100px;
+          margin-right:20px;
+          position:relative;
+      }
+      #editAdPhotoLayout div.imageEditItem.preview img {
+        opacity:0.4;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgProgress .progressBarCont {
+          position: absolute;
+          top: 49px;
+          width: 90px;
+          height: 4px;
+          background-color: #eee;
+          left: 5px;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgProgress .progressBar {
+          width: 0;
+          height: 4px;
+          background-color: #999;
+      }
+      #editAdPhotoLayout div.imageEditItem.error .imgProgress .progressBar {          
+          background-color: #C00;
+      }
+      #editAdPhotoLayout div.imageEditItem.error img {
+        border-color: #C00;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgProgress .progressText {
+          top: 30px;
+          color: #999;
+          text-align: center;
+          font-size: 11px;
+          position: relative;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgProgress .errorText {
+          top: 36px;
+          color: #C00;
+          text-align: center;
+          font-size: 11px;
+          position: relative;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgProgress .errorDismiss,
+      #editAdPhotoLayout div.imageEditItem .imgProgress .uploadRetry {
+          display:none;
+          top: 38px;          
+          text-align: center;
+          font-size: 12px;
+          position: relative;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgProgress .uploadCancel {
+          top: 38px;          
+          text-align: center;
+          font-size: 12px;
+          position: relative;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgProgress .errorDismiss a,
+      #editAdPhotoLayout div.imageEditItem .imgProgress .uploadCancel a,
+      #editAdPhotoLayout div.imageEditItem .imgProgress .uploadRetry a {
+        text-decoration:none;
+        color: #666;
+      }
+      #editAdPhotoLayout div.imageEditItem .imgProgress .errorDismiss a:hover,
+      #editAdPhotoLayout div.imageEditItem .imgProgress .uploadCancel a:hover,
+      #editAdPhotoLayout div.imageEditItem .imgProgress .uploadRetry a:hover {
+        color: #777;
+      }
+      #editAdPhotoLayout div.imageEditItem.error .imgProgress .progressText {
+        color: #C00;
+      }   
+      #editAdPhotoLayout div.imageEditItem.error .imgProgress .errorDismiss {
+        display:block;
+      }
+      #editAdPhotoLayout div.imageEditItem.error.retry .imgProgress .uploadRetry {
+        display:block;
+      }
+      #editAdPhotoLayout div.imageEditItem.error .imgProgress .uploadCancel {
+        display:none;
+      }
+      .mainBody #uploadWarning {
+        color: #C00;
+        border: 1px solid #C00;
+        padding: 8px 16px;
+        font-size: 13px;   
+        width: 320px;
+        border-radius: 2px;
+        text-align: center;
+        margin-bottom: 8px;        
+      }
+      #editAdPhotoLayout div.imageEditItem div.imageArrows {
+        position: absolute;
+        right: 0;
+        height: 102px;
+        width: 20px;
+        top: 0;
+      }
+
+      #editAdPhotoLayout div.imageEditItem div.imageArrows div.arrowUp {
+        width: 0; 
+        height: 0; 
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;        
+        border-bottom: 15px solid #aaa;
+        position:absolute;
+        top:15px;
+      }
+      #editAdPhotoLayout div.imageEditItem div.imageArrows div.arrowDown {
+        width: 0; 
+        height: 0; 
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;        
+        border-top: 15px solid #aaa;
+        position: absolute;
+        bottom:15px;
+      }
+      #editAdPhotoLayout div.imageEditItem div.imageArrows div.arrowUp:hover {
+        border-bottom: 15px solid #ccc;
+        cursor:pointer;
+      }
+      #editAdPhotoLayout div.imageEditItem div.imageArrows div.arrowDown:hover {
+        border-top: 15px solid #ccc;
+        cursor:pointer;
+      }
+      #editAdPhotoLayout div.imageEditItem:first-child div.imageArrows div.arrowUp {display:none;}
+      #editAdPhotoLayout div.imageEditItem:last-child div.imageArrows div.arrowDown {display:none;}
+
+      #errorDebug {
+        padding:8px; border:1px solid #C00;
+      }
+    </style>
+  
+  <script>
+    {% for url in ad.image_list_small %}
+        //load the image to fit center
+        image = new Image();
+        image.src = '{{ url }}';
+        image.onload = function() {
+          var myWidth = this.width;
+          var myHeight = this.height;
+          if (myWidth>myHeight){
+            var myNewImageWidth = 100;
+            var myNewImageHeight = myHeight*100/myWidth;
+            var topPos = (100-myNewImageHeight)/2;
+          } else {
+            var myNewImageHeight = 100;
+            var myNewImageWidth = myWidth*100/myHeight;
+            var topPos = 0;
+          }
+          img = jQuery("img[src='{{ url }}']");
+          img.css("top", topPos+"px").attr({width: myNewImageWidth, height: myNewImageHeight});
+        };
+    {% endfor %}
+
+    jQuery(".mainBody").on("click", "#addImageLink", function(e){
+      e.preventDefault();
+      jQuery(".mainBody input#addImageInput").click();
+    });
+
+    var fileQueue = [];
+    var failedUploads = [];
+    var uploadRequests = [];      
+
+    function clearUploads(){
+      uploading = false; 
+      uploadRequests = [];
+      jQuery(".mainBody form[name='f'] input[type='submit']").each(function(){
+        if (jQuery(this).attr("data-value")=="editAd") jQuery(this).val("Update Ad");        
+        else if (jQuery(this).attr("data-value")=="violatedTermsOfUse") jQuery(this).val("Violated TOU / Lock Ad from Editing");
+        else jQuery(this).val("Continue");
+      });
+    }
+
+    
+      function handleError(elem, error, retry){
+        elem.find(".progressText").text("upload error");
+        if (error) elem.find(".errorText").text(error);
+        elem.addClass("error");
+        if (retry) elem.addClass("retry");
+      }
+      
+      
+      function cancelUpload(reqid){
+        if (uploadRequests[reqid]) uploadRequests[reqid].abort();
+        // remove from failed queue
+        for (var i = 0; i < failedUploads.length; i++) {
+          if (failedUploads[i]['origName'] === reqid) {
+            failedUploads.splice(i, 1);
+             return i;             
+          }
+        }
+      }
+
+      function uploadFile(){
+        if (fileQueue.length){
+          jQuery(".mainBody form[name='f'] input[type='submit']").val("processing...");
+          var myFile = fileQueue[0];
+          var formData = new FormData();
+          formData.append('image', myFile);
+          formData.append('action', "processImage");
+          formData.append('origName', myFile.origName);
+          formData.append('lang', "en-us");
+          var myTemp = jQuery("#imageEditModule #editAdPhotoLayout .imageEditItem[data-filename='"+myFile.origName+"']");
+          var myBar = myTemp.find(".progressBar");
+          // // jQuery("#errorDebug").append("sending file: "+myFile.origName+"<br>");                 
+          uploadRequests[myFile.origName] = jQuery.ajax({
+            xhr: function(){
+              var xhr = new window.XMLHttpRequest();
+              //Upload progress      
+              myTemp.find(".progressText").text("uploading");
+              xhr.upload.addEventListener("progress", function(event){                               
+                if (event.lengthComputable){
+                  var percentComplete = Math.round(event.loaded / event.total * 100);
+                  myBar.css("width", percentComplete+"%");
+                  if (percentComplete>=100) myTemp.find(".progressText").text("processing...");
+                }
+              }, false);
+              return xhr;
+            },
+            url: "/upload-img/",
+            data: formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (data) {
+              console.log("uploadFile success");
+              if (data){
+                if (data.error){
+                  console.log("uploadFile success error"); 
+                  // // jQuery("#errorDebug").append("ajax return error: "+myFile.origName+"<br>");
+                  fileQueue.shift();
+                  handleError(myTemp, data.errorText, false);                                  
+                } else {  
+                  console.log("uploadFile success success");                                                    
+                  // add thumbnail                  
+                  var indx = jQuery("#imageEditModule #editAdPhotoLayout .imageEditItem[data-filename='"+data.origName+"']").attr("data-index");
+                  var myHTML = '<div class="imageEditItem" data-index="'+indx+'" draggable="true" style="opacity: 1; display: block;"><div class="imgIndex"><span>'+indx+'</span></div><div class="imgBox"><img src="'+data.url+'" name="'+data.name+'" alt="" style="top:12px;" draggable="true"></div><div class="imgRemoveLink"><a href="#" style="display: inline;">remove</a></div></div>' 
+                  if (data.origName) {
+                    var tempBox = jQuery("#imageEditModule #editAdPhotoLayout .imageEditItem[data-filename='"+data.origName+"']");   
+                    //console.log(tempBox);            
+                    if (tempBox){
+                      //var imageNb = tempBox.attr("data-index"); 
+                      tempBox.replaceWith(myHTML); 
+
+                      //load the image to fit center
+                      image = new Image();
+                      image.src = data.url;
+                      image.onload = function() {
+                        var myWidth = this.width;
+                        var myHeight = this.height;
+                        console.log(myWidth);
+                        if (myWidth>myHeight){
+                          var myNewImageWidth = 100;
+                          var myNewImageHeight = myHeight*100/myWidth;
+                          var topPos = (100-myNewImageHeight)/2;
+                        } else {
+                          var myNewImageHeight = 100;
+                          var myNewImageWidth = myWidth*100/myHeight;
+                          var topPos = 0;
+                        }
+                        img = jQuery("img[src='"+data.url+"']");
+                        img.css("top", topPos+"px").attr({width: myNewImageWidth, height: myNewImageHeight});
+                      }               
+                    }
+                  }
+                  // // jQuery("#errorDebug").append("upload success: "+myFile.origName+"<br>");
+                  // shift array
+                  fileQueue.shift();
+                  // renumber
+                  renumberImages();
+
+                }
+              }
+            },
+            error: function (jqXHR, errorStatus, errorMsg) {
+              console.log("uploadFile error " + jqXHR); 
+              // // jQuery("#errorDebug").append("ajax error: "+myFile.origName+"<br>");
+              // place in falied queue
+              
+              // one retry              
+              if (myFile.retried || errorStatus=="abort"){
+                if (errorStatus!="abort") failedUploads.push(myFile);
+                fileQueue.shift();
+                //var myError = errorStatus+": "+errorMsg
+                //console.log(myError);
+                handleError(myTemp, null, true); 
+              } else {                
+                //console.log("error on: "+myFile.origName+" / retried");
+                //myBar.css("background-color", "red");
+                myFile.retried = true;
+              }                          
+            },
+            complete: function (){
+              console.log("uploadFile complete"); 
+              // // jQuery("#errorDebug").append("upload complete: "+myFile.origName+"<br>");
+              jQuery(".mainBody #imageUploadProgress").hide();
+              jQuery(".mainBody #imageUploadProgress .uploadProgressCurrent").text("0%");
+              // check for max
+              var currentImageNb = jQuery("#editAdPhotoLayout .imageEditItem:not('.preview')").length;
+              if (currentImageNb < 12){
+                console.log("uploadFile complete current"); 
+                // // jQuery("#errorDebug").append("going to next upload");
+                uploadFile();                
+              } else {
+                console.log("uploadFile complete else"); 
+                // // jQuery("#errorDebug").append("upload stop");
+                clearUploads();
+                fileQueue = [];
+                jQuery(".mainBody #addImageLinkCont").hide();
+              }
+            }
+          });
+        } else {
+          clearUploads();
+          // // jQuery("#errorDebug").append("nothing to upload"); 
+        }
+      }
+    
+    var uploading = false;
+      
+      var idInc = 0;
+
+      jQuery(".mainBody").on("change", "input#addImageInput", function(e){ 
+        console.log("on change");       
+        var fileList = this.files;
+        // // jQuery("#errorDebug").append("new file input change: +"+fileList.length+" files<br>");
+        // check for max
+        var currentImageNb = jQuery("#editAdPhotoLayout .imageEditItem").length;
+        var myMax = (fileList.length+currentImageNb) >= 12 ? (12-currentImageNb):fileList.length;
+        if (myMax>0){
+          // // jQuery("#errorDebug").append("upload allowed");
+          for (var i = 0; i < myMax; i++) {
+            idInc++;
+            fileType = fileList[i].type;
+            // // jQuery("#errorDebug").append("new file: "+fileName+"<br>");
+            if (fileType == "image/jpeg" || fileType == "image/jpg" || fileType == "image/gif" || fileType == "image/png"){              
+              // // jQuery("#errorDebug").append("adding file to queue: "+fileName+"<br>");
+              idInc++;
+              var fileName = idInc+'_'+fileList[i].name.replace(/'/g, '');
+              fileList[i].origName = fileName;               
+              fileQueue.push(fileList[i]);
+              // show preview
+              addUploadPreview(fileList[i]);
+              // check total
+              if (jQuery("#editAdPhotoLayout .imageEditItem").length >= 12) jQuery(".mainBody #addImageLinkCont").hide();              
+            }
+          } 
+          // clear input
+          jQuery(".mainBody input#addImageInput").val("");
+          // start upload
+          if (!uploading){
+            uploading = true;
+            // // jQuery("#errorDebug").append("starting upload queue<br>");
+            uploadFile();            
+          }         
+        } // else { jQuery("#errorDebug").append("max reached<br>");}
+      });
+      
+      function addUploadPreview(file){
+        console.log("addUploadProview"); 
+        var currentImageNb = jQuery("#editAdPhotoLayout .imageEditItem").length+1;
+        var myTempHTML = '<div class="imageEditItem preview" data-filename="'+file.origName+'" data-index="'+idInc+'" draggable="true"><div class="imgIndex"></div><div class="imgBox"><img width="" height="" alt="" draggable="false"></div><div class="imgProgress"><div class="progressText">pending</div><div class="progressBarCont"><div class="progressBar"></div></div><div class="errorText"></div><div class="errorDismiss"><a href="#">remove</a></div><div class="uploadCancel"><a href="#">cancel</a></div><div class="uploadRetry"><a href="#">retry</a></div></div></div>';
+        jQuery("#imageEditModule #editAdPhotoLayout").append(myTempHTML);
+        // // jQuery("#errorDebug").append("added preview: "+fileName+"<br>");
+        var reader = new FileReader();
+
+        reader.onload = function(e){          
+          var image = new Image();           
+          var mySrc = e.target.result;
+          image.src = mySrc;                    
+          image.onload = function(){
+            var myWidth = this.width;
+            var myHeight = this.height;
+            if (myWidth>myHeight){
+              var myNewImageWidth = 100;
+              var myNewImageHeight = myHeight*100/myWidth;
+              var topPos = (100-myNewImageHeight)/2;
+            } else {
+              var myNewImageHeight = 100;
+              var myNewImageWidth = myWidth*100/myHeight;
+              var topPos = 0;
+            }
+            var myTemp = jQuery("#imageEditModule #editAdPhotoLayout .imageEditItem[data-filename='"+file.origName+"']");
+            myTemp.find(".imgBox img").css("top", topPos+"px").attr({width: myNewImageWidth, height: myNewImageHeight, src: mySrc});
+            
+          }          
+        }
+        reader.readAsDataURL(file);
+      }
+
+    function renumberImages(){
+      jQuery("#editAdPhotoLayout .imageEditItem:not('.preview')").each(function(i,e){
+        var newIndex = i+1;
+        //jQuery(this).attr("data-index", newIndex);
+        jQuery(this).find(".imgIndex span").text(newIndex);
+        jQuery(this).find("input.imageInput").attr("name", "imageOid"+newIndex);
+      });
+    }
+
+    jQuery(".mainBody").on("click", "#editAdPhotoLayout .imgRemoveLink a, #editAdPhotoLayout .errorDismiss a", function(e){
+      e.preventDefault();
+      jQuery(this).closest(".imageEditItem").fadeOut("fast", function(e){
+        
+        jQuery(this).remove();
+        renumberImages();
+        // make sure add button is visible
+        var currentImageNb = jQuery("#editAdPhotoLayout .imageEditItem").length;
+        if (currentImageNb < 12){
+          jQuery(".mainBody #addImageLinkCont").show();
+        }
+
+        if (!fileQueue.length){
+          clearUploads();          
+        }
+      });      
+    });      
+    
+    
+    jQuery(".mainBody").on("click", "#editAdPhotoLayout .uploadCancel a", function(e){
+      e.preventDefault();
+      var previewParent = jQuery(this).closest(".imageEditItem");
+      var previewId = previewParent.attr("data-filename");
+      cancelUpload(previewId);
+      previewParent.remove();        
+      renumberImages();
+      // make sure add button is visible
+      var currentImageNb = jQuery("#editAdPhotoLayout .imageEditItem").length;
+      if (currentImageNb < 12){
+        jQuery(".mainBody #addImageLinkCont").show();
+      }
+
+      if (!fileQueue.length){
+        clearUploads();          
+      }
+    });    
+    
+    jQuery(".mainBody").on("click", "#editAdPhotoLayout .uploadRetry a", function(e){
+      e.preventDefault();
+      var previewParent = jQuery(this).closest(".imageEditItem");
+      var previewId = previewParent.attr("data-filename");
+      previewParent.removeClass("error retry")
+      for (var i = 0; i < failedUploads.length; i++) {
+        if (failedUploads[i]['origName'] === previewId) {
+          fileQueue.push(failedUploads[i]);
+          failedUploads.splice(i, 1);
+          if (!uploading){
+            uploading = true;
+            uploadFile();
+          }
+          return i;             
+        }
+      }    
+    });   
+
+    jQuery(".mainBody form[name='f']").submit(function() {      
+      //jQuery(".mainBody #uploadWarning").hide();
+      if (fileQueue.length>0) {
+        var submitBtn = jQuery(this).find("input[type='submit']");        
+        submitBtn.prop('disabled', false);
+        jQuery("#submitProcessing").hide();
+        //if (jQuery(".mainBody #uploadWarning").length==0) submitBtn.before('<div id="uploadWarning">Please wait for image upload to finish.</div>');
+        //jQuery(".mainBody #uploadWarning").show();
+        return false;
+      } else {
+        jQuery("#imageEditModule #editAdPhotoLayout .imageEditItem.preview").remove();
+        renumberImages();
+        return true;
+      }
+    });
+    
+    jQuery(".mainBody").on("click", "#editAdPhotoLayout .imageArrows div", function(e){
+      var myImage = jQuery(this).closest(".imageEditItem");
+      if (jQuery(this).hasClass("arrowUp")){
+        myImage.insertBefore(myImage.prev());
+      } else {
+        myImage.insertAfter(myImage.next());
+      }
+      renumberImages();
+    });
+
+    jQuery(".mainBody #editAdPhotoLayout").on("dragover", "div.imageEditItem", dragOver);
+    jQuery(".mainBody #editAdPhotoLayout").on("dragover", "div.imageEditItem a", ignoreDrag);
+    jQuery(".mainBody #editAdPhotoLayout").on("dragover", "div#tempBox", ignoreDrag);
+    jQuery(".mainBody #editAdPhotoLayout").on("dragenter", "div.imageEditItem", imgBoxEnter);
+    jQuery(".mainBody #editAdPhotoLayout").on("dragend", "div.imageEditItem", dragEnd);
+    jQuery(".mainBody #editAdPhotoLayout").on("dragstart", "div.imageEditItem", dragStart);
+    jQuery(".mainBody").on("drop", "#editAdPhotoLayout", reorderImages);
+
+    var dragID;
+    var draggedItem;
+
+    function dragOver(e){
+      if (draggedItem){
+        draggedItem.hide();
+        var myDropBox = jQuery(this).closest("#editAdPhotoLayout");
+        if (e.originalEvent.offsetY<50) {
+          myDropBox.find("#tempBox").insertBefore(jQuery(e.currentTarget)).show();
+        } else {
+          myDropBox.find("#tempBox").insertAfter(jQuery(e.currentTarget)).show();
+        }
+      }
+      e.originalEvent.preventDefault();
+      e.stopPropagation();
+    }
+
+    function ignoreDrag(e){
+      e.stopPropagation();
+      e.originalEvent.preventDefault();
+    }
+    function imgBoxEnter(e){
+      var myDropBox = jQuery(this).closest("#editAdPhotoLayout");
+      if (myDropBox.find("#tempBox").length==0 && e.currentTarget.id!=dragID) {
+        myDropBox.append('<div id="tempBox" style="display:none;"></div>');
+      }
+      e.originalEvent.preventDefault();
+      e.stopPropagation();
+    }
+    function dragEnd(e){
+      jQuery("#tempBox").remove();
+      jQuery(this).fadeTo("fast",1);
+      dragID='';
+      if (draggedItem) draggedItem.find("div.imgRemoveLink a, div.imageArrows").show();
+      draggedItem = false;
+      e.originalEvent.preventDefault();
+      e.stopPropagation();
+    }
+    function dragStart(e){      
+      e.originalEvent.dataTransfer.effectAllowed = 'move';
+      var thisID = dragID = jQuery(e.currentTarget).attr("data-index");
+      draggedItem = jQuery(this);
+      draggedItem.find("div.imgRemoveLink a, div.imageArrows").hide();
+      e.originalEvent.dataTransfer.setData('Text', thisID);
+      draggedItem.fadeTo("fast",0.4);
+      e.originalEvent.dataTransfer.setData('text/html', null); // Necessary for Chrome!
+      e.stopPropagation();
+    }
+    function reorderImages(e){
+      if (e) {
+        e.originalEvent.preventDefault();
+        e.stopPropagation();
+      }
+      if (draggedItem){
+        var myDropBox = jQuery(this).closest("#editAdPhotoLayout");
+        if (myDropBox.find("#tempBox").length>0) {
+          myDropBox.find("#tempBox").replaceWith(draggedItem);
+          draggedItem.show();
+          renumberImages();
+        }
+        draggedItem.find("div.imgRemoveLink a, div.imageArrows").show();
+      }
+      dragID='';
+      draggedItem = false;
+    }
+  </script>
+
+  <br clear="both">
+    
+  <br>
+
+  <label class="pure-checkbox">
+  {% if ad.agree_to_terms %}
+    <input type="checkbox" name="terms" checked="" required>
+  {% else %}
+    <input type="checkbox" name="terms" required>
+  {% endif %}
+        <span>By placing this ad I agree to the <a href="{{ SITE_URL }}/terms-of-use/" target="_blank">terms of use</a> and 
+<a href="{{ SITE_URL }}/privacy-policy/" target="_blank">privacy policy</a>.</span>
+  </label><br>
+        <style scoped>
+        .button-warning {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+        .button-danger {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+        </style>
+  {% if edit %}
+    <button type="submit" name="continue" value="continue" class="pure-button pure-button-primary" id="submit_button">continue to repost</button>
+    <button type="submit" name="saveonly" value="true" class="pure-button button-warning" id="submit_button_save">save only</button>
+    <button type="submit" name="delete" value="true" class="pure-button button-danger" id="submit_button_delete">delete ad</button>
+  {% else %}
+    <button type="submit" name="continue" value="continue" class="pure-button pure-button-primary" id="submit_button">continue</button>
+  {% endif %}
+  
+  <span id="submitProcessing" style="display:none;">loading...</span>
+
+  </span></form></div>
+
+  <script>
+  function setImageValue() {
+    jQuery("#editAdPhotoLayout .imageEditItem .imgBox img").each(function() {
+      var urls = jQuery("input[name='allimages']").attr("value");
+      if (urls) {
+        jQuery("input[name='allimages']").attr("value", urls+','+this.name);
+      } else {
+        jQuery("input[name='allimages']").attr("value", this.name);
+      }
+    });
+  }
+
+  $( "#adform" ).validate({
+    submitHandler: function(form) {
+      jQuery('#submitProcessing').show();
+      jQuery("#submit_button").attr("disabled", true);
+      jQuery("#submit_button_save").attr("disabled", true);
+      jQuery("#submit_button_delete").attr("disabled", true);
+      setImageValue();
+      form.submit();
+    }
+  });
+  </script>
+
+  <div style="clear:both;"></div>
+    </div>
+    <!-- .mainBody -->
+
+    <div id="tlFooter">    
+      <div class="footerDisclaimer">
+        {{ DOMAIN }} and its subsites are interactive computer services that enable access by multiple users and should not be treated as the publisher or speaker of any information provided by another information content provider.     
+      </div><!-- .footerDisclaimer -->
+    </div><!-- #tlFooter -->
+  </div><!-- #pageBackground -->
+
+  <script>
+    function hex2a(hexx) {
+      var hex = hexx.toString();//force conversion
+      var str = '';
+      for (var i = 0; i < hex.length; i += 2)
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+      return str;
+    };
+    $('#titlefield').keyup(function() {
+      $('#titlefieldmessage').html(checkWordsTitleField($('#titlefield').val()));
+    });
+    $('#textfield').keyup(function() {
+      $('#textfieldmessage').html(checkWordsBodyField($('#textfield').val()));
+    });
+
+    badWordsList = {{ bad_words_list|safe }};
+
+    function checkWordsTitleField(words) {
+      for (var i=0;i<badWordsList.length;i++) {
+        if (words.indexOf(hex2a(badWordsList[i])) !== -1) {
+          return "bad words";
+        } else {
+          $('#titlefieldmessage').html("");
+        }
+      };
+    };
+    function checkWordsBodyField(words) {
+      for (var i=0;i<badWordsList.length;i++) {
+        if (words.indexOf(hex2a(badWordsList[i])) !== -1) {
+          return "bad words";
+        } else {
+          $('#textfieldmessage').html("");
+        }
+      };
+    };
+  </script>
+</body></html>

@@ -1,0 +1,1367 @@
+[ 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Alabama", 
+            "name": "Birmingham", 
+            "region": "United States", 
+            "short_name": "birmingham", 
+            "short_state": "AL", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 2
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Alabama", 
+            "name": "Huntsville", 
+            "region": "United States", 
+            "short_name": "huntsville", 
+            "short_state": "AL", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 5
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Alabama", 
+            "name": "Mobile", 
+            "region": "United States", 
+            "short_name": "mobile", 
+            "short_state": "AL", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 6
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Alabama", 
+            "name": "Montgomery", 
+            "region": "United States", 
+            "short_name": "montgomery", 
+            "short_state": "AL", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 7
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Alaska", 
+            "name": "Anchorage", 
+            "region": "United States", 
+            "short_name": "anchorage", 
+            "short_state": "AK", 
+            "timezone": "America/Anchorage"
+        }, 
+        "model": "geocity.City", 
+        "pk": 10
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Arizona", 
+            "name": "Phoenix", 
+            "region": "United States", 
+            "short_name": "phoenix", 
+            "short_state": "AZ", 
+            "timezone": "America/Phoenix"
+        }, 
+        "model": "geocity.City", 
+        "pk": 17
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Arizona", 
+            "name": "Tucson", 
+            "region": "United States", 
+            "short_name": "tucson", 
+            "short_state": "AZ", 
+            "timezone": "America/Phoenix"
+        }, 
+        "model": "geocity.City", 
+        "pk": 21
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Arkansas", 
+            "name": "Little Rock", 
+            "region": "United States", 
+            "short_name": "littlerock", 
+            "short_state": "AR", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 26
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "Bakersfield", 
+            "region": "United States", 
+            "short_name": "bakersfield", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 27
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "Fresno", 
+            "region": "United States", 
+            "short_name": "fresno", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 29
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "Inland Empire", 
+            "region": "United States", 
+            "short_name": "inlandempire", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 32
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "Long Beach", 
+            "region": "United States", 
+            "short_name": "longbeach", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 33
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "Los Angeles", 
+            "region": "United States", 
+            "short_name": "losangeles", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 34
+    },      
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "Oakland", 
+            "region": "United States", 
+            "short_name": "oakland", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 40
+    },      
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "Sacramento", 
+            "region": "United States", 
+            "short_name": "sacramento", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 47
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "San Diego", 
+            "region": "United States", 
+            "short_name": "sandiego", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 48
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "San Francisco", 
+            "region": "United States", 
+            "short_name": "sanfrancisco", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 50
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "California", 
+            "name": "San Jose", 
+            "region": "United States", 
+            "short_name": "sanjose", 
+            "short_state": "CA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 52
+    },        
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Colorado", 
+            "name": "Colorado Springs", 
+            "region": "United States", 
+            "short_name": "coloradosprings", 
+            "short_state": "CO", 
+            "timezone": "America/Denver"
+        }, 
+        "model": "geocity.City", 
+        "pk": 64
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Colorado", 
+            "name": "Denver", 
+            "region": "United States", 
+            "short_name": "denver", 
+            "short_state": "CO", 
+            "timezone": "America/Denver"
+        }, 
+        "model": "geocity.City", 
+        "pk": 65
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Connecticut", 
+            "name": "Bridgeport", 
+            "region": "United States", 
+            "short_name": "bridgeport", 
+            "short_state": "CT", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 70
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Connecticut", 
+            "name": "Hartford", 
+            "region": "United States", 
+            "short_name": "hartford", 
+            "short_state": "CT", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 72
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Connecticut", 
+            "name": "New Haven", 
+            "region": "United States", 
+            "short_name": "newhaven", 
+            "short_state": "CT", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 73
+    },   
+    {
+        "fields": {
+            "country": "District of Columbia", 
+            "long_state": "District of Columbia", 
+            "name": "Washington DC", 
+            "region": "United States", 
+            "short_name": "dc", 
+            "short_state": "District of Columbia", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 77
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Florida", 
+            "name": "Jacksonville", 
+            "region": "United States", 
+            "short_name": "jacksonville", 
+            "short_state": "FL", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 82
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Florida", 
+            "name": "Miami", 
+            "region": "United States", 
+            "short_name": "miami", 
+            "short_state": "FL", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 85
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Florida", 
+            "name": "Orlando", 
+            "region": "United States", 
+            "short_name": "orlando", 
+            "short_state": "FL", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 88
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Florida", 
+            "name": "Tampa", 
+            "region": "United States", 
+            "short_name": "tampa", 
+            "short_state": "FL", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 97
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Georgia", 
+            "name": "Atlanta", 
+            "region": "United States", 
+            "short_name": "atlanta", 
+            "short_state": "GA", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 101
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Georgia", 
+            "name": "Savannah", 
+            "region": "United States", 
+            "short_name": "savannah", 
+            "short_state": "GA", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 107
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Hawaii", 
+            "name": "Honolulu", 
+            "region": "United States", 
+            "short_name": "honolulu", 
+            "short_state": "HI", 
+            "timezone": "Pacific/Honolulu"
+        }, 
+        "model": "geocity.City", 
+        "pk": 111
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Idaho", 
+            "name": "Boise", 
+            "region": "United States", 
+            "short_name": "boise", 
+            "short_state": "ID", 
+            "timezone": "America/Denver"
+        }, 
+        "model": "geocity.City", 
+        "pk": 114
+    },     
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Illinois", 
+            "name": "Chicago", 
+            "region": "United States", 
+            "short_name": "chicago", 
+            "short_state": "IL", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 121
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Indiana", 
+            "name": "Indianapolis", 
+            "region": "United States", 
+            "short_name": "indianapolis", 
+            "short_state": "IN", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 132
+    },     
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Iowa", 
+            "name": "Des Moines", 
+            "region": "United States", 
+            "short_name": "desmoines", 
+            "short_state": "IA", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 141
+    },        
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Kansas", 
+            "name": "Wichita", 
+            "region": "United States", 
+            "short_name": "wichita", 
+            "short_state": "KS", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 154
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Kentucky", 
+            "name": "Lexington", 
+            "region": "United States", 
+            "short_name": "lexington", 
+            "short_state": "KY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 157
+    },      
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Louisiana", 
+            "name": "New Orleans", 
+            "region": "United States", 
+            "short_name": "neworleans", 
+            "short_state": "LA", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 167
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Maryland", 
+            "name": "Baltimore", 
+            "region": "United States", 
+            "short_name": "baltimore", 
+            "short_state": "MD", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 170
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Massachusetts", 
+            "name": "Boston", 
+            "region": "United States", 
+            "short_name": "boston", 
+            "short_state": "MA", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 175
+    },     
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Michigan", 
+            "name": "Detroit", 
+            "region": "United States", 
+            "short_name": "detroit", 
+            "short_state": "MI", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 185
+    },         
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Minnesota", 
+            "name": "Minneapolis", 
+            "region": "United States", 
+            "short_name": "minneapolis", 
+            "short_state": "MN", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 203
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Minnesota", 
+            "name": "St Paul", 
+            "region": "United States", 
+            "short_name": "stpaul", 
+            "short_state": "MN", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 204
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Mississippi", 
+            "name": "Jackson", 
+            "region": "United States", 
+            "short_name": "jackson", 
+            "short_state": "MS", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 209
+    },     
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Missouri", 
+            "name": "Kansas City", 
+            "region": "United States", 
+            "short_name": "kansascity", 
+            "short_state": "MO", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 216
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Missouri", 
+            "name": "St Louis", 
+            "region": "United States", 
+            "short_name": "stlouis", 
+            "short_state": "MO", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 222
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Montana", 
+            "name": "Billings", 
+            "region": "United States", 
+            "short_name": "billings", 
+            "short_state": "MT", 
+            "timezone": "America/Denver"
+        }, 
+        "model": "geocity.City", 
+        "pk": 223
+    },      
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Nebraska", 
+            "name": "Omaha", 
+            "region": "United States", 
+            "short_name": "omaha", 
+            "short_state": "NE", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 233
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Nevada", 
+            "name": "Las Vegas", 
+            "region": "United States", 
+            "short_name": "lasvegas", 
+            "short_state": "NV", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 236
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Nevada", 
+            "name": "Reno", 
+            "region": "United States", 
+            "short_name": "reno", 
+            "short_state": "NV", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 237
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New Jersey", 
+            "name": "Central Jersey", 
+            "region": "United States", 
+            "short_name": "centraljersey", 
+            "short_state": "NJ", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 238
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New Jersey", 
+            "name": "Jersey Shore", 
+            "region": "United States", 
+            "short_name": "jerseyshore", 
+            "short_state": "NJ", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 239
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New Jersey", 
+            "name": "North Jersey", 
+            "region": "United States", 
+            "short_name": "northjersey", 
+            "short_state": "NJ", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 240
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New Jersey", 
+            "name": "South Jersey", 
+            "region": "United States", 
+            "short_name": "southjersey", 
+            "short_state": "NJ", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 241
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New Mexico", 
+            "name": "Albuquerque", 
+            "region": "United States", 
+            "short_name": "albuquerque", 
+            "short_state": "NM", 
+            "timezone": "America/Denver"
+        }, 
+        "model": "geocity.City", 
+        "pk": 242
+    },      
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Albany", 
+            "region": "United States", 
+            "short_name": "albany", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 251
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Bronx", 
+            "region": "United States", 
+            "short_name": "bronx", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 253
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Brooklyn", 
+            "region": "United States", 
+            "short_name": "brooklyn", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 254
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Buffalo", 
+            "region": "United States", 
+            "short_name": "buffalo", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 255
+    },      
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Long Island", 
+            "region": "United States", 
+            "short_name": "longisland", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 264
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Manhattan", 
+            "region": "United States", 
+            "short_name": "manhattan", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 265
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Queens", 
+            "region": "United States", 
+            "short_name": "queens", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 269
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Rochester", 
+            "region": "United States", 
+            "short_name": "rochester", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 270
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Staten Island", 
+            "region": "United States", 
+            "short_name": "statenisland", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 271
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New York", 
+            "name": "Syracuse", 
+            "region": "United States", 
+            "short_name": "syracuse", 
+            "short_state": "NY", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 272
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "North Carolina", 
+            "name": "Charlotte", 
+            "region": "United States", 
+            "short_name": "charlotte", 
+            "short_state": "NC", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 279
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "North Carolina", 
+            "name": "Raleigh-durham", 
+            "region": "United States", 
+            "short_name": "raleigh", 
+            "short_state": "NC", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 286
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "North Dakota", 
+            "name": "Fargo", 
+            "region": "United States", 
+            "short_name": "fargo", 
+            "short_state": "ND", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 290
+    },     
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Ohio", 
+            "name": "Cincinnati", 
+            "region": "United States", 
+            "short_name": "cincinnati", 
+            "short_state": "OH", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 298
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Ohio", 
+            "name": "Cleveland", 
+            "region": "United States", 
+            "short_name": "cleveland", 
+            "short_state": "OH", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 299
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Ohio", 
+            "name": "Columbus", 
+            "region": "United States", 
+            "short_name": "columbus", 
+            "short_state": "OH", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 300
+    },         
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Oklahoma", 
+            "name": "Oklahoma City", 
+            "region": "United States", 
+            "short_name": "oklahomacity", 
+            "short_state": "OK", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 314
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Oklahoma", 
+            "name": "Tulsa", 
+            "region": "United States", 
+            "short_name": "tulsa", 
+            "short_state": "OK", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 316
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Oregon", 
+            "name": "Portland", 
+            "region": "United States", 
+            "short_name": "portland", 
+            "short_state": "OR", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 324
+    },      
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Pennsylvania", 
+            "name": "Philadelphia", 
+            "region": "United States", 
+            "short_name": "philadelphia", 
+            "short_state": "PA", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 335
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Pennsylvania", 
+            "name": "Pittsburgh", 
+            "region": "United States", 
+            "short_name": "pittsburgh", 
+            "short_state": "PA", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 336
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Rhode Island", 
+            "name": "Providence", 
+            "region": "United States", 
+            "short_name": "providence", 
+            "short_state": "RI", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 342
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "South Carolina", 
+            "name": "Charleston", 
+            "region": "United States", 
+            "short_name": "charleston", 
+            "short_state": "SC", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 344
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "South Dakota", 
+            "name": "Sioux Falls", 
+            "region": "United States", 
+            "short_name": "siouxfalls", 
+            "short_state": "SD", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 353
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Tennessee", 
+            "name": "Knoxville", 
+            "region": "United States", 
+            "short_name": "knoxville", 
+            "short_state": "TN", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 358
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Tennessee", 
+            "name": "Memphis", 
+            "region": "United States", 
+            "short_name": "memphis", 
+            "short_state": "TN", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 359
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Tennessee", 
+            "name": "Nashville", 
+            "region": "United States", 
+            "short_name": "nashville", 
+            "short_state": "TN", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 360
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Texas", 
+            "name": "Austin", 
+            "region": "United States", 
+            "short_name": "austin", 
+            "short_state": "TX", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 364
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Texas", 
+            "name": "Corpus Christi", 
+            "region": "United States", 
+            "short_name": "corpuschristi", 
+            "short_state": "TX", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 368
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Texas", 
+            "name": "Dallas", 
+            "region": "United States", 
+            "short_name": "dallas", 
+            "short_state": "TX", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 369
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Texas", 
+            "name": "El Paso", 
+            "region": "United States", 
+            "short_name": "elpaso", 
+            "short_state": "TX", 
+            "timezone": "America/Denver"
+        }, 
+        "model": "geocity.City", 
+        "pk": 372
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Texas", 
+            "name": "Fort Worth", 
+            "region": "United States", 
+            "short_name": "fortworth", 
+            "short_state": "TX", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 373
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Texas", 
+            "name": "Houston", 
+            "region": "United States", 
+            "short_name": "houston", 
+            "short_state": "TX", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 375
+    },         
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Texas", 
+            "name": "San Antonio", 
+            "region": "United States", 
+            "short_name": "sanantonio", 
+            "short_state": "TX", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 384
+    },       
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Utah", 
+            "name": "Salt Lake City", 
+            "region": "United States", 
+            "short_name": "saltlakecity", 
+            "short_state": "UT", 
+            "timezone": "America/Denver"
+        }, 
+        "model": "geocity.City", 
+        "pk": 395
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Virginia", 
+            "name": "Chesapeake", 
+            "region": "United States", 
+            "short_name": "chesapeake", 
+            "short_state": "VA", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 398
+    },      
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Virginia", 
+            "name": "Norfolk", 
+            "region": "United States", 
+            "short_name": "norfolk", 
+            "short_state": "VA", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 406
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Virginia", 
+            "name": "Richmond", 
+            "region": "United States", 
+            "short_name": "richmond", 
+            "short_state": "VA", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 408
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Virginia", 
+            "name": "Virginia Beach", 
+            "region": "United States", 
+            "short_name": "virginiabeach", 
+            "short_state": "VA", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 412
+    },    
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Washington", 
+            "name": "Seattle", 
+            "region": "United States", 
+            "short_name": "seattle", 
+            "short_state": "WA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 419
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Washington", 
+            "name": "Spokane", 
+            "region": "United States", 
+            "short_name": "spokane", 
+            "short_state": "WA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 420
+    },  
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Washington", 
+            "name": "Tacoma", 
+            "region": "United States", 
+            "short_name": "tacoma", 
+            "short_state": "WA", 
+            "timezone": "America/Los_Angeles"
+        }, 
+        "model": "geocity.City", 
+        "pk": 422
+    },      
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Wisconsin", 
+            "name": "Appleton", 
+            "region": "United States", 
+            "short_name": "appleton", 
+            "short_state": "WI", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 433
+    },   
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Wisconsin", 
+            "name": "Madison", 
+            "region": "United States", 
+            "short_name": "madison", 
+            "short_state": "WI", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 438
+    }, 
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Wisconsin", 
+            "name": "Milwaukee", 
+            "region": "United States", 
+            "short_name": "milwaukee", 
+            "short_state": "WI", 
+            "timezone": "America/Chicago"
+        }, 
+        "model": "geocity.City", 
+        "pk": 439
+    },
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Delaware", 
+            "name": "Delaware", 
+            "region": "United States", 
+            "short_name": "delaware", 
+            "short_state": "DE", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 945
+    },
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Maine", 
+            "name": "Maine", 
+            "region": "United States", 
+            "short_name": "maine", 
+            "short_state": "ME", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 946
+    },
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "New Hampshire", 
+            "name": "New Hampshire", 
+            "region": "United States", 
+            "short_name": "newhampshire", 
+            "short_state": "NH", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 947
+    },
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Vermont", 
+            "name": "Burlington", 
+            "region": "United States", 
+            "short_name": "burlington", 
+            "short_state": "VT", 
+            "timezone": "America/New_York"
+        }, 
+        "model": "geocity.City", 
+        "pk": 948
+    },
+    {
+        "fields": {
+            "country": "United States", 
+            "long_state": "Wyoming", 
+            "name": "Wyoming", 
+            "region": "United States", 
+            "short_name": "wyoming", 
+            "short_state": "WY", 
+            "timezone": "America/Denver"
+        }, 
+        "model": "geocity.City", 
+        "pk": 949
+    }   
+]

@@ -1,0 +1,5 @@
+*.pyc
+/PO_ENV.py
+/static/debug_toolbar/
+/wl1
+/scripts
