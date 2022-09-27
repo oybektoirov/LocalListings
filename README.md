@@ -1,4 +1,4 @@
-# LocalListings - classifieds CRUD application
+# LocalListings - monolitic classifieds web-app
 
 Run the following commands to install Geolocation data
 
