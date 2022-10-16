@@ -11,10 +11,7 @@ install libmaxminddb C lib https://github.com/maxmind/libmaxminddb
 
 ```
 sudo apt-get install aptitude
-
 sudo add-apt-repository ppa:maxmind/ppa
-
 sudo aptitude update
-
 sudo aptitude install libmaxminddb0 libmaxminddb-dev mmdb-bin# LocalListings
 ```
